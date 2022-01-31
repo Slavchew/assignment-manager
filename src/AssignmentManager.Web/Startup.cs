@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AssignmentManger.Web
+namespace AssignmentManager.Web
 {
     public class Startup
     {

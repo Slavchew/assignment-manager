@@ -1,4 +1,4 @@
-﻿using AssignmentManger.Web.Models;
+﻿using AssignmentManager.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AssignmentManger.Web.Controllers
+namespace AssignmentManager.Web.Controllers
 {
     public class HomeController : Controller
     {
