@@ -1,6 +1,10 @@
+using AssignmentManager.Data;
+using AssignmentManager.Services;
+using AssignmentManager.Services.Implementations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +27,13 @@ namespace AssignmentManager.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AssignmentManagerDbContext>(options =>
+            {
+                options.UseSqlServer(this.Configuration["ConnectionString"]);
+            });
+
+            services.AddTransient<IAssignmentsService, AssignmentsService>();
+            services.AddTransient<IClassesService, ClassesService>();
             services.AddControllersWithViews();
         }
 
@@ -35,7 +46,7 @@ namespace AssignmentManager.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Assignments/Home");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }

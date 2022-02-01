@@ -17,7 +17,7 @@ namespace AssignmentManager.Data.Models
 
         public DateTime DueDate { get; set; }
 
-        public string Notes { get; set; }
+        public string Description { get; set; }
 
         public bool IsCompleted { get; set; }
     }
