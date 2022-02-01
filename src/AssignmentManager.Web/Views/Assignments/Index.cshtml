@@ -1,8 +1,11 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Schedule";
 }
+<script>
+    const scheduleTab = document.getElementsByClassName("nav_list__li--schedule")[0];
+    const classesTab = document.getElementsByClassName("nav_list__li--classes")[0];
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    scheduleTab.classList.add("nav_list__li--active");
+</script>
+
+<h1>Assignments</h1>

@@ -1,6 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Classes";
 }
+<script>
+    const scheduleTab = document.getElementsByClassName("nav_list__li--schedule")[0];
+    const classesTab = document.getElementsByClassName("nav_list__li--classes")[0];
 
-<h1>Index</h1>
+    classesTab.classList.add("nav_list__li--active");
+</script>
 
+<h1>Classes</h1>
