@@ -123,6 +123,12 @@ header nav ul li a:hover::after {
   header {
     height: 70px;
   }
+  header a .header__logo_img_txt {
+    display: none;
+  }
+  header nav ul li {
+    display: none;
+  }
   header .nav--mobile {
     margin: 0;
     position: absolute;
@@ -142,6 +148,9 @@ header nav ul li a:hover::after {
     flex-direction: column;
     margin: 0;
     padding: 0;
+  }
+  header .nav--mobile ul li {
+    display: block;
   }
   header .nav--mobile ul li a {
     margin: 0;
