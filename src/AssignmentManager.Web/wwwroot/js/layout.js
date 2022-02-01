@@ -1,24 +1,13 @@
-﻿////window.addEventListener('DOMContentLoaded', (event) => {
-////     Header
+﻿window.addEventListener('DOMContentLoaded', (event) => {
+    // Header
 
-////    // Menu button
-////    const mobileBtn = document.querySelector(".menu_btn");
-////    const nav = document.querySelector(".navigation");
-////    mobileBtn.addEventListener("click", () => {
-////        nav.classList.toggle("menu_active");
-////        mobileBtn.classList.toggle("btn_active");
-////    });
-
-////    // !!! Does not work when loading a new page !!! Active page 
-////    //const navListItems = document.getElementsByClassName("nav_list__li");
-
-////    //for (const item of navListItems) {
-////    //    item.addEventListener('click', (e) => {
-////    //        for (const item of navListItems) {
-////    //            item.classList.remove("nav_list__li--active");
-////    //        }
-////    //        item.classList.add("nav_list__li--active");
-////    //    });
-////    //}
-
-////});
+    // Menu button
+    const menuBtn = document.getElementsByClassName("menu_btn")[0];
+    const nav = document.getElementsByClassName("nav")[0];
+    const cornerGraphic = document.getElementsByClassName("corner_graphic_mobile")[0]
+    menuBtn.addEventListener("click", () => {
+        nav.classList.toggle("nav--mobile");
+        cornerGraphic.classList.toggle("corner_graphic_mobile--menu_btn_active");
+        menuBtn.classList.toggle("menu_btn--active");
+    });
+});
