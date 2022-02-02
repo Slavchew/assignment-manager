@@ -125,6 +125,10 @@ header {
     }
 }
 
+main {
+    padding: 150px 0 0 0;
+}
+
 .corner_graphic {
     z-index: -1;
     position: fixed;
@@ -160,6 +164,10 @@ header {
             font-weight: 500;
             line-height: 70px;
             color: white;
+            padding: 0 25px 0 25px;
+            &--left {
+                text-align: left;
+            }
         }
 
         .mobile_header_back_btn {
@@ -167,6 +175,10 @@ header {
             position: absolute;
             height: 35px;
             margin: 18px 0 0 25px;
+
+            &--disable {
+                display: none;
+            }
         }
 
         nav {
