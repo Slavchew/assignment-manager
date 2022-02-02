@@ -102,7 +102,7 @@ header .menu_btn .menu_line {
 }
 
 main {
-  padding: 150px 0 0 0;
+  margin: 150px 0 0 0;
 }
 
 .corner_graphic {
@@ -203,6 +203,10 @@ main {
     background-color: #222222;
     -webkit-transform: rotate(45deg) translate(-7.5px, -13.5px);
     transform: rotate(45deg) translate(-7.5px, -9px);
+  }
+
+  main {
+    margin: 70px 0 0 0;
   }
 
   .corner_graphic {
