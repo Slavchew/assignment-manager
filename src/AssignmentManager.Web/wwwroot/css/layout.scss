@@ -21,41 +21,32 @@ header {
     background-image: url("/content/headerWave.svg");
     background-repeat: repeat-x;
 
-    .menu_btn {
-        display: none;
-        position: absolute;
-        height: 35px;
-        right: 0;
-        top: 0;
-        margin: 13.5px 20px 0 0;
-        cursor: pointer;
-    }
-
-    .menu_line {
-        width: 36px;
-        height: 4.5px;
-        background-color: #FFFFFF;
-        border-radius: 2px;
-        margin: 7.5px;
-        transition: 0.2s;
-    }
-
-    .header__logo_img_txt {
-        position: absolute;
-        width: 210px;
-        margin: 10px 0 0 25px;
-
-        img {
-            height: 75px;
-        }
-
-        span {
+    a {
+        .header__mainLogo {
             position: absolute;
-            margin: 5px 0 0 10px;
-            color: #ffffff;
-            font-size: 1.2rem;
-            font-weight: 500;
+            width: 210px;
+            margin: 10px 0 0 25px;
+
+            img {
+                height: 75px;
+            }
+
+            span {
+                position: absolute;
+                margin: 7px 0 0 13px;
+                color: #ffffff;
+                font-size: 21px;
+                font-weight: 500;
+            }
         }
+    }
+
+    .mobile_header_title {
+        display: none;
+    }
+
+    .mobile_header_back_btn {
+        display: none;
     }
 
     nav {
@@ -66,17 +57,14 @@ header {
             right: 0;
             padding: 0 5% 0 0;
 
-            .nav_list__li--active a:after {
-                content: '';
-                position: absolute;
-                background: #ffffff;
-                bottom: -4px;
-                left: 0;
-                height: .15rem;
-                width: calc(100%) !important;
-                opacity: 100% !important;
-                transition: 0s !important;
-                border-radius: 10px;
+            .nav_list__li--active {
+                a {
+                    &::after {
+                        width: calc(100%) !important;
+                        opacity: 100% !important;
+                        transition: 0s !important;
+                    }
+                }
             }
 
             li {
@@ -98,7 +86,7 @@ header {
                         left: 0;
                         height: 0.15rem;
                         width: 0%;
-                        opacity: 100%;
+                        opacity: 70%;
                         transition: 0.2s;
                         border-radius: 10px;
                     }
@@ -109,12 +97,30 @@ header {
 
                         &::after {
                             width: calc(100%);
-                            transition: 0.2s;
-                            opacity: 70%;
+
                         }
                     }
                 }
             }
+        }
+    }
+
+    .menu_btn {
+        display: none;
+        position: absolute;
+        height: 35px;
+        right: 0;
+        top: 0;
+        margin: 13.5px 20px 0 0;
+        cursor: pointer;
+
+        .menu_line {
+            width: 36px;
+            height: 4.5px;
+            background-color: #FFFFFF;
+            border-radius: 2px;
+            margin: 7.5px;
+            transition: 0.2s;
         }
     }
 }
@@ -124,25 +130,51 @@ header {
     position: fixed;
     bottom: 0;
     left: 0;
+}
 
-    &_mobile {
-        display: none;
-        height: 50%;
-        z-index: -1;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-    }
+.corner_graphic_mobile {
+    display: none;
+    height: 50%;
+    z-index: -1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 @media (max-width: 610px) {
     header {
         height: 70px;
-        a .header__logo_img_txt {
-            display: none;
+
+        a {
+            .header__mainLogo {
+                display: none;
+            }
         }
-        nav ul li {
-            display: none;
+
+        .mobile_header_title {
+            display: block;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 70px;
+            color: white;
+        }
+
+        .mobile_header_back_btn {
+            display: block;
+            position: absolute;
+            height: 35px;
+            margin: 18px 0 0 25px;
+        }
+
+        nav {
+            ul {
+                .nav_list__li {
+                    display: none;
+                }
+            }
         }
 
         .nav--mobile {
@@ -166,7 +198,8 @@ header {
                 padding: 0;
 
                 li {
-                    display:block;
+                    display: block;
+
                     a {
                         margin: 0;
                         color: #222222;

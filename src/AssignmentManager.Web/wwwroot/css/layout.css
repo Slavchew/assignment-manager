@@ -19,37 +19,26 @@ header {
   background-image: url("/content/headerWave.svg");
   background-repeat: repeat-x;
 }
-header .menu_btn {
-  display: none;
-  position: absolute;
-  height: 35px;
-  right: 0;
-  top: 0;
-  margin: 13.5px 20px 0 0;
-  cursor: pointer;
-}
-header .menu_line {
-  width: 36px;
-  height: 4.5px;
-  background-color: #FFFFFF;
-  border-radius: 2px;
-  margin: 7.5px;
-  transition: 0.2s;
-}
-header .header__logo_img_txt {
+header a .header__mainLogo {
   position: absolute;
   width: 210px;
   margin: 10px 0 0 25px;
 }
-header .header__logo_img_txt img {
+header a .header__mainLogo img {
   height: 75px;
 }
-header .header__logo_img_txt span {
+header a .header__mainLogo span {
   position: absolute;
-  margin: 5px 0 0 10px;
+  margin: 7px 0 0 13px;
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 21px;
   font-weight: 500;
+}
+header .mobile_header_title {
+  display: none;
+}
+header .mobile_header_back_btn {
+  display: none;
 }
 header nav {
   margin: 30px 0 0 25px;
@@ -59,17 +48,10 @@ header nav ul {
   right: 0;
   padding: 0 5% 0 0;
 }
-header nav ul .nav_list__li--active a:after {
-  content: "";
-  position: absolute;
-  background: #ffffff;
-  bottom: -4px;
-  left: 0;
-  height: 0.15rem;
+header nav ul .nav_list__li--active a::after {
   width: 100% !important;
   opacity: 100% !important;
   transition: 0s !important;
-  border-radius: 10px;
 }
 header nav ul li {
   display: inline;
@@ -90,7 +72,7 @@ header nav ul li a::after {
   left: 0;
   height: 0.15rem;
   width: 0%;
-  opacity: 100%;
+  opacity: 70%;
   transition: 0.2s;
   border-radius: 10px;
 }
@@ -100,8 +82,23 @@ header nav ul li a:hover {
 }
 header nav ul li a:hover::after {
   width: 100%;
+}
+header .menu_btn {
+  display: none;
+  position: absolute;
+  height: 35px;
+  right: 0;
+  top: 0;
+  margin: 13.5px 20px 0 0;
+  cursor: pointer;
+}
+header .menu_btn .menu_line {
+  width: 36px;
+  height: 4.5px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  margin: 7.5px;
   transition: 0.2s;
-  opacity: 70%;
 }
 
 .corner_graphic {
@@ -110,6 +107,7 @@ header nav ul li a:hover::after {
   bottom: 0;
   left: 0;
 }
+
 .corner_graphic_mobile {
   display: none;
   height: 50%;
@@ -123,10 +121,26 @@ header nav ul li a:hover::after {
   header {
     height: 70px;
   }
-  header a .header__logo_img_txt {
+  header a .header__mainLogo {
     display: none;
   }
-  header nav ul li {
+  header .mobile_header_title {
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 70px;
+    color: white;
+  }
+  header .mobile_header_back_btn {
+    display: block;
+    position: absolute;
+    height: 35px;
+    margin: 18px 0 0 25px;
+  }
+  header nav ul .nav_list__li {
     display: none;
   }
   header .nav--mobile {

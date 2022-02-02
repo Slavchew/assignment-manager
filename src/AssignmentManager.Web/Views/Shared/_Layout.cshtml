@@ -4,17 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AssignmentManager</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/layout.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
 </head>
 <body>
     <header>
         <a asp-area="" asp-controller="Assignments" asp-action="Index">
-            <div class="header__logo_img_txt">
-                <img src="/content/logoImg.svg" alt="">
+            <div class="header__mainLogo">
+                <img src="/content/mainLogoNoTxt.svg" alt="">
                 <span>ASSIGNMENT<br>MANAGER</span>
             </div>
         </a>
+        <span class="mobile_header_title">Placeholder</span>
+        <input type="image" class="mobile_header_back_btn" src="/content/headerMobileBack.svg" onclick="history.back()">
         <nav class="nav">
             <ul>
                 <li class="nav_list__li nav_list__li--schedule">
@@ -25,49 +26,23 @@
                 </li>
             </ul>
         </nav>
-
         <div class="menu_btn">
             <div class="menu_line"></div>
             <div class="menu_line"></div>
             <div class="menu_line"></div>
         </div>
-
     </header>
 
 
-
-
-    <img class="corner_graphic" src="/content/corner_graphic.svg">
-    <img class="corner_graphic_mobile" src="/content/corner_graphic_mobile.svg">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <main role="main" class="pb-3">
+    <main role="main">
         @RenderBody()
     </main>
 
 
-    @*
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    *@
-    <script src="/js/misc.js" asp-append-version="true"></script>
+    <img class="corner_graphic" src="/content/cornerGraphic.svg">
+    <img class="corner_graphic_mobile" src="/content/cornerGraphicMobile.svg">
+
+
     <script src="/js/layout.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
