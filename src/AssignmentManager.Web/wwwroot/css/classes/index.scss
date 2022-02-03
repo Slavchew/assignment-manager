@@ -8,6 +8,7 @@
 
 .classes_container {
     padding: 0 300px 0 300px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -20,7 +21,7 @@
         height: 76px;
         background-color: rgba(255, 255, 255, 0.65);
         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-        transition: all .15s ease-in-out;
+        transition: transform .15s ease-in-out;
 
         &__color_tag {
             position: absolute;
@@ -57,6 +58,80 @@
 
         &:hover {
             transform: scale(104%);
+        }
+    }
+}
+
+.add_class {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    height: 75px;
+    width: 75px;
+    background: #006FBB;
+    border-radius: 50%;
+
+    &__line {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        width: 7px;
+        height: 40px;
+        background: #ffffff;
+        border-radius: 10px;
+
+        &:nth-child(2) {
+            width: 40px;
+            height: 7px;
+        }
+    }
+}
+
+
+
+@media (max-width: 610px) {
+    .main_title {
+        display: none;
+    }
+
+    .classes_container {
+        padding: 0;
+        gap: 0px;
+
+        a {
+            width: 100%;
+
+            .class {
+                width: 100%;
+                height: 80px;
+                box-shadow: none;
+
+                &__color_tag {
+                    width: 13px;
+                }
+
+                &__name {
+                    font-size: 1.35rem;
+                }
+
+                &__assignment_count {
+                    font-size: 0.8rem;
+                }
+
+                &__arrow {
+                    transition: margin .15s ease-in-out;
+                    right: 35px;
+                }
+
+                &:hover {
+                    transform: none;
+
+                    .class__arrow {
+                        margin: 0 20px 0 0;
+                    }
+                }
+            }
         }
     }
 }

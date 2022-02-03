@@ -97,7 +97,6 @@ header {
 
                         &::after {
                             width: calc(100%);
-
                         }
                     }
                 }
@@ -160,11 +159,12 @@ main {
             position: absolute;
             width: 100%;
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 500;
             line-height: 70px;
             color: white;
             padding: 0 25px 0 25px;
+
             &--left {
                 text-align: left;
             }

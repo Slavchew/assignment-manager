@@ -42,5 +42,9 @@
   {
     "outputFile": "wwwroot/css/classes/details.css",
     "inputFile": "wwwroot/css/classes/details.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/shared/layout.css",
+    "inputFile": "wwwroot/css/shared/layout.scss"
   }
 ]
