@@ -12,29 +12,48 @@
     classesTab.classList.add("nav_list__li--active");
 </script>
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Color" class="control-label"></label>
-                <input asp-for="Color" class="form-control" />
-                <span asp-validation-for="Color" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-success" />
-                <a class="btn btn-info" asp-action="Index">Back to List</a>
-            </div>
-        </form>
+
+<h1 class="main_title">EDIT</h1>
+
+<form asp-action="Edit" class="form_edit_class">
+    <label class="form_edit_class__label" asp-for="Name">Class Title</label>
+    <input class="form_edit_class__name_input" asp-for="Name" placeholder="Title" />
+    @*<span asp-validation-for="Name"></span>*@
+
+    <label class="form_edit_class__label">Class Color</label>
+    <div class="form_edit_class__color_input">
+        @{
+            Random rand = new Random();
+            for (var i = 1; i <= 16; i++)
+            {
+                <input asp-for="Color" type="radio" value="@i" id="color_@i" />
+                /* Color & ColorId confusion */
+                <label style="background-color: #@rand.Next(0, 16777215).ToString("X");;" for="color_@i" class="color_box"></label>
+            }
+        }
     </div>
-</div>
+    <div>
+        <button type="submit" class="save_class">
+            <img src="/content/save.png" />
+        </button>
+    </div>
+</form>
 
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+@*
+    @section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+*@
+
+
+
+
+
+
+
+
+
+
