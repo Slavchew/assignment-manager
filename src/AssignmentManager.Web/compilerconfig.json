@@ -6,5 +6,41 @@
   {
     "outputFile": "wwwroot/css/layout.css",
     "inputFile": "wwwroot/css/layout.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/classes/index.css",
+    "inputFile": "wwwroot/css/classes/index.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/assignments/index.css",
+    "inputFile": "wwwroot/css/assignments/index.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/classes/edit.css",
+    "inputFile": "wwwroot/css/classes/edit.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/classes/create.css",
+    "inputFile": "wwwroot/css/classes/create.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/assignments/create.css",
+    "inputFile": "wwwroot/css/assignments/create.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/assignments/edit.css",
+    "inputFile": "wwwroot/css/assignments/edit.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/classes/Welcome.css",
+    "inputFile": "wwwroot/css/classes/Welcome.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/assignments/details.css",
+    "inputFile": "wwwroot/css/assignments/details.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/classes/details.css",
+    "inputFile": "wwwroot/css/classes/details.scss"
   }
 ]

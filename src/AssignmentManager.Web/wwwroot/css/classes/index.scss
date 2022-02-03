@@ -1,0 +1,62 @@
+﻿.main_title {
+    padding: 50px 0 50px 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: #222222
+}
+
+.classes_container {
+    padding: 0 300px 0 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 20px;
+    row-gap: 15px;
+
+    .class {
+        position: relative;
+        width: 340px;
+        height: 76px;
+        background-color: rgba(255, 255, 255, 0.65);
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        transition: all .15s ease-in-out;
+
+        &__color_tag {
+            position: absolute;
+            left: 0;
+            width: 7px;
+            height: 100%;
+        }
+
+        &__name {
+            position: absolute;
+            left: 30px;
+            top: 15px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #222222;
+        }
+
+        &__assignment_count {
+            position: absolute;
+            left: 30px;
+            bottom: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #777777;
+        }
+
+        &__arrow {
+            position: absolute;
+            transform: translate(0%, -50%);
+            right: 20px;
+            top: 50%;
+            height: 22px;
+        }
+
+        &:hover {
+            transform: scale(104%);
+        }
+    }
+}

@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Classes";
 }
+<link rel="stylesheet" href="/css/classes/index.css" />
+
 <script>
     const scheduleTab = document.getElementsByClassName("nav_list__li--schedule")[0];
     const classesTab = document.getElementsByClassName("nav_list__li--classes")[0];
@@ -8,4 +10,16 @@
     classesTab.classList.add("nav_list__li--active");
 </script>
 
-<h1>Classes</h1>
+<h1 class="main_title">CLASSES</h1>
+
+<div class="classes_container">
+    @*Backend Data Needed (Init Loop, Color, TargetURL)*@
+    <a href="#">
+        <div class="class">
+            <div style="background: #F0AB67;" class="class__color_tag"></div>
+            <span class="class__name">Physics</span>
+            <span class="class__assignment_count">2 assignments</span>
+            <img class="class__arrow" src="/content/classArrow.svg" />
+        </div>
+    </a>
+</div>
