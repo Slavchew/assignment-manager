@@ -1,21 +1,15 @@
 ﻿@model AssignmentManager.Web.ViewModels.Class.ClassDetailsViewModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script>
-    const scheduleTab = document.getElementsByClassName("nav_list__li--schedule")[0];
-    const classesTab = document.getElementsByClassName("nav_list__li--classes")[0];
+<h1>Delete</h1>
 
-    classesTab.classList.add("nav_list__li--active");
-</script>
-
-<link rel="stylesheet" href="/css/classes/details.css" />
-
-<h1>Details</h1>
-
+<h3>Are you sure you want to delete this?</h3>
 <div>
+    <h4>ClassDetailsViewModel</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -31,9 +25,9 @@
             @Html.DisplayFor(model => model.Color)
         </dd>
     </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
-

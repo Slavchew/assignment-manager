@@ -1,9 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AssignmentManager.Data.Models
 {
     public class Class
     {
+        public Class()
+        {
+            this.Assignments = new HashSet<Assignment>();
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -12,6 +18,8 @@ namespace AssignmentManager.Data.Models
 
         public int ColorId { get; set; }
 
-        public Color Color { get; set; }
+        public virtual Color Color { get; set; }
+
+        public virtual ICollection<Assignment> Assignments { get; set; }
     }
 }

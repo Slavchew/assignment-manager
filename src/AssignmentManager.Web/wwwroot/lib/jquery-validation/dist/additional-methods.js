@@ -271,7 +271,8 @@ $.validator.addMethod( "cpfBR", function( value ) {
 	}
 
 	var sum = 0,
-		firstCN, secondCN, checkResult, i;
+		
+	, secondCN, checkResult, i;
 
 	firstCN = parseInt( value.substring( 9, 10 ), 10 );
 	secondCN = parseInt( value.substring( 10, 11 ), 10 );

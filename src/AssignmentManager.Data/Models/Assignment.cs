@@ -13,7 +13,7 @@ namespace AssignmentManager.Data.Models
 
         public int ClassId { get; set; }
 
-        public Class Class { get; set; }
+        public virtual Class Class { get; set; }
 
         public DateTime DueDate { get; set; }
 
