@@ -34,13 +34,13 @@ namespace AssignmentManager.Web.Controllers
                 return this.RedirectToAction("Error", "Home");
             }
 
-            var categoryServiceModel = new CreateClassServiceModel()
+            var classServiceModel = new CreateClassServiceModel()
             {
                 Name = model.Name,
                 ColorId = model.ColorId
             };
 
-            this.classesService.Create(categoryServiceModel);
+            this.classesService.Create(classServiceModel);
 
             return this.RedirectToAction("Index", "Classes");
         }
@@ -147,24 +147,9 @@ namespace AssignmentManager.Web.Controllers
 
             return this.RedirectToAction("Index", "Classes");
         }
-
-        /*
-        public IActionResult All()
-        {
-            var categories = categoryService.All()
-                .Select(csm => new CategoryListingViewModel()
-                {
-                    Id = csm.Id,
-                    Name = csm.Name
-                })
-                .ToArray();
-
-            return this.View(categories);
-        }
         public IActionResult Welcome()
         {
             return View();
         }
-        */
     }
 }
