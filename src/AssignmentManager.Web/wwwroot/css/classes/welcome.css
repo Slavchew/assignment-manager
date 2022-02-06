@@ -1,1 +1,124 @@
-﻿
+﻿* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.welcome {
+  position: absolute;
+  left: 12%;
+  top: 20%;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 52px;
+}
+
+.instructions {
+  position: absolute;
+  left: 10%;
+  top: 30%;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.arrow__svg {
+  position: absolute;
+  width: 100px;
+  left: 45%;
+  top: 28%;
+}
+
+.plus__svg {
+  position: absolute;
+  width: 100px;
+  left: 70%;
+  top: 28%;
+}
+
+.wave {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  left: 0%;
+  bottom: 0px;
+  background-image: url("/content/Waves.svg");
+  background-repeat: repeat-x;
+}
+
+.okay__container {
+  position: absolute;
+  width: 130px;
+  height: 45px;
+  left: 80%;
+  bottom: 60px;
+  border-radius: 23px;
+  background-color: white;
+  filter: drop-shadow(0px 9px 6px rgba(0, 0, 0, 0.25));
+}
+
+.okay__text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 20px;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 610px) {
+  .welcome {
+    left: 28%;
+    top: 12%;
+    font-size: 34px;
+  }
+
+  .instructions {
+    left: 15%;
+    top: 23%;
+    font-size: 18px;
+  }
+
+  .arrow__svg {
+    width: 75px;
+    left: 25%;
+    top: 43%;
+  }
+
+  .plus__svg {
+    position: absolute;
+    width: 75px;
+    left: 65%;
+    top: 43%;
+  }
+
+  .wave {
+    position: absolute;
+    width: 100%;
+    height: 270px;
+  }
+
+  .okay__container {
+    position: absolute;
+    width: 130px;
+    height: 45px;
+    left: 50%;
+    bottom: 60px;
+    transform: translate(-50%);
+  }
+
+  .okay__text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+  }
+}
