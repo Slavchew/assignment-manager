@@ -43,6 +43,7 @@ header {
 
     .mobile_header_title {
         display: none;
+        text-transform: uppercase;
     }
 
     .mobile_header_back_btn {
@@ -146,6 +147,7 @@ main {
 
 @media (max-width: 610px) {
     header {
+        position: fixed;
         height: 70px;
 
         a {

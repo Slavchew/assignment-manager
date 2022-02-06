@@ -36,6 +36,7 @@ header a .header__mainLogo span {
 }
 header .mobile_header_title {
   display: none;
+  text-transform: uppercase;
 }
 header .mobile_header_back_btn {
   display: none;
@@ -123,6 +124,7 @@ main {
 
 @media (max-width: 610px) {
   header {
+    position: fixed;
     height: 70px;
   }
   header a .header__mainLogo {

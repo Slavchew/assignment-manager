@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AssignmentManager</title>
+    <title>AssignmentManager</title>
     <link rel="stylesheet" href="/css/shared/layout.css" />
 </head>
 <body>
@@ -15,7 +15,7 @@
             </div>
         </a>
         @*Modifier '--left' Moves Title Left*@
-        <span class="mobile_header_title">PLACEHOLDER</span>
+        <span class="mobile_header_title">@ViewData["Title"]</span>
         @*Modifier '--disable' Hides Back Button*@
         <input type="image" class="mobile_header_back_btn" src="/content/headerMobileBack.svg" onclick="history.back()">
         <nav class="nav">
@@ -41,9 +41,8 @@
     </main>
 
 
-    <img class="corner_graphic" src="/content/cornerGraphic.svg">
-    <img class="corner_graphic_mobile" src="/content/cornerGraphicMobile.svg">
-
+    <img class="corner_graphic" src="/content/cornerGraphic.svg" />
+    <img class="corner_graphic_mobile" src="/content/cornerGraphicMobile.svg" />
 
     <script src="/js/layout.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

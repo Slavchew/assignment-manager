@@ -10,4 +10,64 @@
     scheduleTab.classList.add("nav_list__li--active");
 </script>
 
-<h1>Assignments</h1>
+<h1 class="main_title">SCHEDULE</h1>
+
+<div class="assignments_container assignments_container--overdue">
+    <div class="status_arrow status_arrow--overdue">
+        <img src="/content/upcomingArrowBG.svg" />
+        <span>OVERDUE</span>
+    </div>
+    <a href="#">
+        <div class="assignment">
+            <div style="background: #F0AB67;" class="assignment__color_tag"></div>
+            <span class="assignment__name">Assignment name</span>
+            <span class="assignment__due_date">Due in 2 days</span>
+            <img class="assignment__arrow" src="/content/classArrow.svg" />
+        </div>
+    </a>
+    <a href="#">
+        <div class="assignment">
+            <div style="background: #F0AB67;" class="assignment__color_tag"></div>
+            <span class="assignment__name">Assignment name</span>
+            <span class="assignment__due_date">Due in 2 days</span>
+            <img class="assignment__arrow" src="/content/classArrow.svg" />
+        </div>
+    </a>
+</div>
+<div class="assignments_container assignments_container--upcoming">
+    <div class="status_arrow status_arrow--upcoming">
+        <img src="/content/upcomingArrowBG.svg" />
+        <span>UPCOMING</span>
+    </div>
+    <a href="#">
+        <div class="assignment">
+            <div style="background: #F0AB67;" class="assignment__color_tag"></div>
+            <span class="assignment__name">Assignment name</span>
+            <span class="assignment__due_date">Due in 2 days</span>
+            <img class="assignment__arrow" src="/content/classArrow.svg" />
+        </div>
+    </a>
+    <a href="#">
+        <div class="assignment">
+            <div style="background: #F0AB67;" class="assignment__color_tag"></div>
+            <span class="assignment__name">Assignment name</span>
+            <span class="assignment__due_date">Due in 2 days</span>
+            <img class="assignment__arrow" src="/content/classArrow.svg" />
+        </div>
+    </a>
+    <a href="#">
+        <div class="assignment">
+            <div style="background: #F0AB67;" class="assignment__color_tag"></div>
+            <span class="assignment__name">Assignment name</span>
+            <span class="assignment__due_date">Due in 2 days</span>
+            <img class="assignment__arrow" src="/content/classArrow.svg" />
+        </div>
+    </a>
+</div>
+
+<a asp-action="Create">
+    <div class="add_assignment">
+        <div class="add_assignment__line"></div>
+        <div class="add_assignment__line"></div>
+    </div>
+</a>
