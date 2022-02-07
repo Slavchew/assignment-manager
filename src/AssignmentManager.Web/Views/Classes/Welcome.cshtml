@@ -3,19 +3,20 @@
     Layout = null;
 }
 <link rel="stylesheet" href="/css/classes/welcome.css" />
-<div class="welcome">
-    <h1 class="welcome__title">Welcome!</h1>
-    <p class="welcome__text">To begin create a class and add <br> an assignment with the ‘+’ icon.</p>
-</div>
 
-<img class="arrow_graphic" src="/content/go.svg">
+    <div class="welcome">
+        <h1 class="welcome__title">Welcome!</h1>
+    </div>
 
-<img class="add_class_graphic" src="/content/plus.svg">
+    <div class="instruction_container">
+        <p class="welcome__instructions">To begin create a class and add an assignment with the " <img class="plus_icon" src="/content/plus.svg"> " icon.</p>
+    </div>
+    
+    <div class="bottom_wave">
+        <a asp-controller="Classes" asp-action="">
+            <div class="okay_btn">OKAY</div>
+        </a>
+    </div>
 
-<div class="bottom_wave">
-    <a asp-controller="Classes" asp-action="">
-        <div class="okay_btn">OKAY</div>
-    </a>
-</div>
 
 
