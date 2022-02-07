@@ -24,17 +24,20 @@
   height: 79px;
   display: flex;
   align-items: center;
-  padding: 0 580px 0 0;
+  padding: 0 530px 0 0;
 }
 .assignments_container .status_arrow span {
   position: absolute;
   font-size: 1.2rem;
   font-weight: 500;
   color: #ffffff;
-  left: 35px;
+  left: 15px;
 }
 .assignments_container .status_arrow--overdue {
   filter: hue-rotate(140deg);
+}
+.assignments_container .status_arrow--overdue span {
+  margin: 0 0 0 7px;
 }
 .assignments_container .assignment {
   position: relative;

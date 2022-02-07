@@ -27,18 +27,21 @@
         height: 79px;
         display: flex;
         align-items: center;
-        padding: 0 580px 0 0;
+        padding: 0 530px 0 0;
 
         span {
             position: absolute;
             font-size: 1.2rem;
             font-weight: 500;
             color: #ffffff;
-            left: 35px;
+            left: 17px;
         }
 
         &--overdue {
-            filter: hue-rotate(140deg)
+            filter: hue-rotate(140deg);
+            span {
+                margin: 0 0 0 7px;
+            }
         }
     }
 
