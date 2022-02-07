@@ -46,5 +46,9 @@
   {
     "outputFile": "wwwroot/css/shared/layout.css",
     "inputFile": "wwwroot/css/shared/layout.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/classes/delete.css",
+    "inputFile": "wwwroot/css/classes/delete.scss"
   }
 ]

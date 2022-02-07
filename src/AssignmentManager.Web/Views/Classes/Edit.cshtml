@@ -33,11 +33,11 @@
         }
     </div>
 
-    <div>
-        <button type="submit" class="delete">
+    <a asp-controller="Classes" asp-action="Delete" asp-route-id="@Model.Id">
+        <div class="delete">
             <img src="/content/delete.png" />
-        </button>
-    </div>
+        </div>
+    </a>
 
     <div>
         <button type="submit" class="save_class">
@@ -45,6 +45,8 @@
         </button>
     </div>
 </form>
+
+
 
 
 @*
