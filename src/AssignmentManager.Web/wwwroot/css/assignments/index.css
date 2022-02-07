@@ -36,6 +36,9 @@
 .assignments_container .status_arrow--overdue {
   filter: hue-rotate(140deg);
 }
+.assignments_container .status_arrow--overdue span {
+  margin: 0 0 0 7px;
+}
 .assignments_container .assignment {
   position: relative;
   width: 340px;

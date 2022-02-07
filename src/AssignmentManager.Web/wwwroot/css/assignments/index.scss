@@ -37,7 +37,11 @@
         }
 
         &--overdue {
-            filter: hue-rotate(140deg)
+            filter: hue-rotate(140deg);
+
+            span {
+                margin: 0 0 0 7px;
+            }
         }
     }
 
