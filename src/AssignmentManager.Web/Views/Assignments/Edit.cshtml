@@ -1,4 +1,6 @@
-﻿@{
+﻿@model AssignmentManager.Data.Models.Assignment
+
+@{
     ViewData["Title"] = "Edit Assignment";
 }
 <link rel="stylesheet" href="/css/assignments/edit.css" />
@@ -10,4 +12,46 @@
     scheduleTab.classList.add("nav_list__li--active");
 </script>
 
-<h1>Edit</h1>
+<h1 class="main_title">EDIT ASSIGNMENT</h1>
+
+<form asp-action="Edit" class="edit_assignment">
+    <div class="edit_assignment__name">
+        <label class="form_label" asp-for="Name">Assignment Title</label>
+        <input class="form_input" asp-for="Name" value="Alpha Bravo Charlie" placeholder="Title" />
+    </div>
+
+    <div class="edit_assignment__description edit_assignment__description--desktop">
+        <label class="form_label" asp-for="Description">Description</label>
+        <textarea asp-for="Description" placeholder="Description (optional)"></textarea>
+    </div>
+
+    <div class="edit_assignment__due_date">
+        <label class="form_label" asp-for="DueDate">Due Date</label>
+        <input class="form_input" type="date" asp-for="DueDate" placeholder="Title" />
+    </div>
+
+    <div class="edit_assignment__class">
+        <label class="form_label" asp-for="Class">Class</label>
+        <select class="form_input" asp-for="Class">
+            <option value="alpha">Alpha</option>
+            <option value="bravo">Bravo</option>
+        </select>
+    </div>
+
+    <div class="edit_assignment__description edit_assignment__description--mobile">
+        <label class="form_label" asp-for="Description">Description</label>
+        <textarea asp-for="Description" placeholder="Description (optional)"></textarea>
+    </div>
+
+    <div>
+        <button type="submit" class="delete">
+            <img src="/content/delete.png" />
+        </button>
+    </div>
+
+    <div>
+        <button type="submit" class="save">
+            <img src="/content/save.png" />
+        </button>
+    </div>
+</form>

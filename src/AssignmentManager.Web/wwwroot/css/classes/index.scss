@@ -7,7 +7,7 @@
 }
 
 .classes_container {
-    padding: 0 300px 0 300px;
+    padding: 0 calc(50% - 600px) 0 calc(50% - 600px);
     width: 100%;
     display: flex;
     flex-wrap: wrap;
