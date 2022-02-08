@@ -1,9 +1,20 @@
-﻿namespace AssignmentManager.Services
+﻿using AssignmentManager.Services.Models.Assignment;
+using System.Collections.Generic;
+
+namespace AssignmentManager.Services
 {
     public interface IAssignmentsService
     {
-        void Create(string name, string className, string dueDate, string desription);
+        DetailsAssignmentServiceModel GetById(int id);
 
-        void Edit(string name, string className, string dueDate, string desription);
+        void Create(CreateAssignmentServiceModel model);
+
+        void Edit(EditAssignmentServiceModel model);
+
+        bool Remove(int id);
+
+        bool Exists(int assignmentId);
+
+        IEnumerable<DetailsAssignmentServiceModel> GetAll();
     }
 }

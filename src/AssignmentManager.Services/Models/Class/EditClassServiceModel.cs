@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AssignmentManager.Services.Models.Class
+﻿namespace AssignmentManager.Services.Models.Class
 {
     public class EditClassServiceModel
     {

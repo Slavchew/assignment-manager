@@ -1,5 +1,6 @@
 ﻿using AssignmentManager.Data;
 using AssignmentManager.Data.Models;
+using AssignmentManager.Services.Models.Assignment;
 using AssignmentManager.Services.Models.Class;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -108,6 +109,23 @@ namespace AssignmentManager.Services.Implementations
                 })
                 .OrderBy(x => x.Id)
                 .ToList();
+        }
+
+        public IEnumerable<DetailsAssignmentServiceModel> GetAllAssignmentsByClassId(int classId)
+        {
+            return this.db.Assignments
+                .Where(x => x.ClassId == classId)
+                .Select(x => new DetailsAssignmentServiceModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    ClassId = x.ClassId,
+                    DueDate = x.DueDate,
+                    Description = x.Description,
+                })
+                .OrderByDescending(x => x.DueDate)
+                .ToList();
+
         }
     }
 }

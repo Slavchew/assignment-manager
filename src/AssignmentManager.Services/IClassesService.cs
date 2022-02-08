@@ -1,4 +1,5 @@
-﻿using AssignmentManager.Services.Models.Class;
+﻿using AssignmentManager.Services.Models.Assignment;
+using AssignmentManager.Services.Models.Class;
 using System.Collections.Generic;
 
 namespace AssignmentManager.Services
@@ -16,5 +17,7 @@ namespace AssignmentManager.Services
         bool Exists(int classId);
 
         IEnumerable<DetailsClassServiceModel> GetAll();
+
+        IEnumerable<DetailsAssignmentServiceModel> GetAllAssignmentsByClassId(int classId);
     }
 }

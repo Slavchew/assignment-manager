@@ -1,5 +1,7 @@
 ﻿using AssignmentManager.Services;
+using AssignmentManager.Services.Models.Assignment;
 using AssignmentManager.Web.Models;
+using AssignmentManager.Web.ViewModels.Assignment;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -21,21 +23,149 @@ namespace AssignmentManager.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-        public IActionResult Details()
-        {
-            return View();
+            var assignments = this.assignmentsService.GetAll();
+
+            return this.View(assignments);
         }
 
         public IActionResult Create()
         {
-            return View();
+            return this.View();
         }
 
-        public IActionResult Edit()
+        [HttpPost]
+        public IActionResult Create(CreateAssignmentInputModel model)
         {
-            return View();
+            if (!this.ModelState.IsValid)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            var assignmentServiceModel = new CreateAssignmentServiceModel()
+            {
+                Name = model.Name,
+                ClassId = model.ClassId,
+                Description = model.Description,
+                DueDate = model.DueDate
+            };
+
+            this.assignmentsService.Create(assignmentServiceModel);
+
+            return this.RedirectToAction("Index", "Assignments");
+        }
+
+
+        
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var assignment = this.assignmentsService.GetById(id);
+
+            if (assignment.Name == null)
+            {
+                return BadRequest();
+            }
+
+            AssignmentDetailsViewModel viewModel = new AssignmentDetailsViewModel()
+            {
+                Id = assignment.Id,
+                Name = assignment.Name,
+                ClassId = assignment.ClassId,
+                DueDate = assignment.DueDate,
+                Description = assignment.Description,
+            };
+
+            return this.View(viewModel);
+        }
+
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+
+            var assignment = this.assignmentsService.GetById(id);
+
+            if (assignment.Name == null)
+            {
+                return this.BadRequest();
+            }
+
+            var viewModel = new AssignmentDetailsViewModel()
+            {
+
+                Id = assignment.Id,
+                Name = assignment.Name,
+                ClassId = assignment.ClassId,
+                DueDate = assignment.DueDate,
+                Description = assignment.Description,
+            };
+
+            return this.View(viewModel);
+
+        }
+
+        [HttpPost]
+        public IActionResult Edit(AssignmentEditInputModel model)
+        {
+            if (!this.assignmentsService.Exists(model.Id))
+            {
+                return this.BadRequest();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            var easm = new EditAssignmentServiceModel()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                ClassId = model.ClassId,
+                DueDate = model.DueDate,
+                Description = model.Description,
+            };
+
+            this.assignmentsService.Edit(easm);
+
+            return this.RedirectToAction("Index", "Assignments", new { id = easm.Id });
+        }
+
+
+        
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var assignment = this.assignmentsService.GetById(id);
+
+            if (assignment.Name == null)
+            {
+                return this.BadRequest();
+            }
+
+            var cdvm = new AssignmentDetailsViewModel()
+            {
+                Id = assignment.Id,
+                Name = assignment.Name,
+                ClassId = assignment.ClassId,
+                DueDate = assignment.DueDate,
+                Description = assignment.Description,
+            };
+
+            return this.View(cdvm);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(AssignmentDetailsViewModel model)
+        {
+            bool success = this.assignmentsService.Remove(model.Id);
+
+            if (!success)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            return this.RedirectToAction("Index", "Assignments");
         }
     }
 }

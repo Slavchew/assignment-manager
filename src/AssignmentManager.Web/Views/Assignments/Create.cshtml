@@ -1,4 +1,5 @@
-﻿@model AssignmentManager.Data.Models.Assignment
+﻿@using AssignmentManager.Data
+@model AssignmentManager.Data.Models.Assignment
 
 @{
     ViewData["Title"] = "New Assignment";
@@ -31,10 +32,23 @@
     </div>
 
     <div class="create_assignment__class">
-        <label class="form_label" asp-for="Class">Class</label>
-        <select class="form_input" asp-for="Class">
-            <option value="alpha">Alpha</option>
-            <option value="bravo">Bravo</option>
+        <label class="form_label" asp-for="ClassId">Class</label>
+        <select class="form_input" asp-for="ClassId">
+        @{
+            var db = new AssignmentManagerDbContext();
+            var classes = db.Classes.Select(x => new
+            {
+                x.Id,
+                x.Name
+            })
+            .OrderBy(x => x.Id)
+            .ToList();
+
+            for (var i = 0; i < classes.Count; i++)
+            {
+                <option value="@classes[i].Id">@classes[i].Name</option>
+            }
+        }
         </select>
     </div>
 

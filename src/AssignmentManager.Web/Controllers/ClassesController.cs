@@ -1,7 +1,9 @@
 ﻿using AssignmentManager.Services;
 using AssignmentManager.Services.Models.Class;
+using AssignmentManager.Web.ViewModels.Assignment;
 using AssignmentManager.Web.ViewModels.Class;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace AssignmentManager.Web.Controllers
 {
@@ -62,6 +64,25 @@ namespace AssignmentManager.Web.Controllers
                 Name = classObj.Name,
                 Color = classObj.Color
             };
+
+            var assignments = this.classesService.GetAllAssignmentsByClassId(id);
+
+            List<AssignmentDetailsViewModel> assignmentsViewModel = new List<AssignmentDetailsViewModel>();
+            foreach (var item in assignments)
+            {
+                var assignment = new AssignmentDetailsViewModel()
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    ClassId = item.ClassId,
+                    DueDate = item.DueDate,
+                    Description = item.Description,
+                };
+
+                assignmentsViewModel.Add(assignment);
+            }
+
+            viewModel.Assignments = assignmentsViewModel;
 
             return this.View(viewModel);
         }
