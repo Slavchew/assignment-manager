@@ -30,7 +30,7 @@
             <div class="class">
                 <div style="background: #F0AB67;" class="class__color_tag"></div> @*Color todo*@
                 <span class="class__name">@Html.DisplayFor(modelItem => item.Name)</span> @*span*@
-                <span class="class__assignment_count">2 assignments</span>
+                <span class="class__assignment_count">@Html.DisplayFor(modelItem => item.Assignments.Count) assignments</span>
                 <img class="class__arrow" src="/content/classArrow.svg" />
             </div>
         </a>

@@ -22,6 +22,7 @@ namespace AssignmentManager.Services.Implementations
         {
             var classObj = this.db.Classes
                 .Include(x => x.Color)
+                .Include(x => x.Assignments)
                 .FirstOrDefault(x => x.Id == id);
 
             var dcsm = new DetailsClassServiceModel()
@@ -30,6 +31,25 @@ namespace AssignmentManager.Services.Implementations
                 Name = classObj?.Name,
                 Color = classObj?.Color.Name,
             };
+
+            List<DetailsAssignmentServiceModel> assignments = new List<DetailsAssignmentServiceModel>();
+
+            foreach (var item in classObj.Assignments)
+            {
+                var assignment = new DetailsAssignmentServiceModel()
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    ClassId = item.ClassId,
+                    DueDate = item.DueDate,
+                    Description = item.Description,
+                    IsCompleted = item.IsCompleted
+                };
+
+                assignments.Add(assignment);
+            }
+
+            dcsm.Assignments = assignments;
 
             return dcsm;
         }
@@ -101,11 +121,23 @@ namespace AssignmentManager.Services.Implementations
         public IEnumerable<DetailsClassServiceModel> GetAll()
         {
             return this.db.Classes
+                .Include(x => x.Assignments)
                 .Select(x => new DetailsClassServiceModel
                 {
                     Id = x.Id,
                     Name = x.Name,
-                    Color = x.Color.Name
+                    Color = x.Color.Name,
+                    Assignments = x.Assignments
+                        .Select(a => new DetailsAssignmentServiceModel
+                        {
+                            Id = a.Id,
+                            Name = a.Name,
+                            ClassId = a.ClassId,
+                            DueDate = a.DueDate,
+                            Description = a.Description,
+                            IsCompleted = a.IsCompleted
+                        })
+                        .ToList()
                 })
                 .OrderBy(x => x.Id)
                 .ToList();
