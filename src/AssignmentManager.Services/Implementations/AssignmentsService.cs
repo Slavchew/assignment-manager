@@ -115,7 +115,7 @@ namespace AssignmentManager.Services.Implementations
                     DueDate = x.DueDate,
                     IsCompleted = x.IsCompleted
                 })
-                .OrderBy(x => x.Id)
+                .OrderBy(x => x.DueDate)
                 .ToList();
         }
     }

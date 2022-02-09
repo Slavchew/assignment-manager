@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = Html.DisplayFor(model => model.Name);
 }
+<link rel="stylesheet" href="/css/classes/details.css" />
 
 <script>
     const scheduleTab = document.getElementsByClassName("nav_list__li--schedule")[0];
@@ -11,11 +12,7 @@
     classesTab.classList.add("nav_list__li--active");
 </script>
 
-<link rel="stylesheet" href="/css/classes/details.css" />
-
 <h1 class="main_title">@Html.DisplayFor(model => model.Name)</h1>
-
-
 
 <div class="assignments_container assignments_container--overdue">
     <div class="status_arrow status_arrow--overdue">
@@ -23,95 +20,82 @@
         <span>OVERDUE</span>
     </div>
     @{
+        var dueDate = "";
         var now = DateTime.UtcNow;
-        foreach (var item in Model.Assignments)
-        {
-            var dueDate = "";
-            if (now.Date == item.DueDate.Date)
-            {
-                dueDate = "Due Today";
-            }
-            else if (item.DueDate.Date.AddDays(1) == now.Date)
-            {
-                dueDate = "Yesterday";
-            }
-            else if (item.DueDate.Date == now.Date.AddDays(1))
-            {
-                dueDate = "Due Tomorrow";
-            }
-            else if (item.DueDate.Date == now.Date.AddDays(2))
-            {
-                dueDate = "Due in 2 Days";
-            }
-            else if (item.DueDate.Date == now.Date.AddDays(3))
-            {
-                dueDate = "Due in 3 Days";
-            }
-            else if (item.DueDate.Date == now.Date.AddDays(4))
-            {
-                dueDate = "Due in 4 Days";
-            }
-            else if (item.DueDate.Date == now.Date.AddDays(5))
-            {
-                dueDate = "Due in 5 Days";
-            }
-            else if (item.DueDate.Date == now.Date.AddDays(6))
-            {
-                dueDate = "Due in 6 Days";
-            }
-            else if (item.DueDate.Date == now.Date.AddDays(7))
-            {
-                dueDate = "Due in a week";
-            }
-            else
-            {
-                dueDate = $"Due {item.DueDate.ToString("dd/MM/yyyy")}";
-            }
 
-            <a asp-controller="Assignments" asp-action="Details" asp-route-id="@item.Id">
-                <div class="assignment">
-                    <div style="background: #F0AB67;" class="assignment__color_tag"></div>
-                    <span class="assignment__name">@Html.DisplayFor(modelItem => item.Name)</span>
-                    <span class="assignment__due_date">@dueDate</span>
-                    <img class="assignment__arrow" src="/content/classArrow.svg" />
-                </div>
-            </a>
-        }
+        foreach (var item in Model.Assignments)
+            if (item.DueDate.Date < now.Date)
+            {
+                if (item.DueDate.Date.AddDays(1) == now.Date)
+                    dueDate = "Yesterday";
+                else if (item.DueDate.Date.AddDays(2) == now.Date)
+                    dueDate = "Due 2 Days Ago";
+                else if (item.DueDate.Date.AddDays(3) == now.Date)
+                    dueDate = "Due 3 Days Ago";
+                else if (item.DueDate.Date.AddDays(4) == now.Date)
+                    dueDate = "Due 4 Days Ago";
+                else if (item.DueDate.Date.AddDays(5) == now.Date)
+                    dueDate = "Due 5 Days Ago";
+                else if (item.DueDate.Date.AddDays(6) == now.Date)
+                    dueDate = "Due 6 Days Ago";
+                else if (item.DueDate.Date.AddDays(7) == now.Date)
+                    dueDate = "Due a week ago";
+                else
+                    dueDate = $"Due {item.DueDate.ToString("dd/MM/yyyy")}";
+
+                <a asp-controller="Assignments" asp-action="Details" asp-route-id="@item.Id">
+                    <div class="assignment">
+                        <div style="background: #F0AB67;" class="assignment__color_tag"></div>
+                        <span class="assignment__name">@Html.DisplayFor(modelItem => item.Name)</span>
+                        <span class="assignment__due_date">@dueDate</span>
+                        <img class="assignment__arrow" src="/content/classArrow.svg" />
+                    </div>
+                </a>
+            }
     }
 </div>
 
-@*
 <div class="assignments_container assignments_container--upcoming">
     <div class="status_arrow status_arrow--upcoming">
         <img src="/content/upcomingArrowBG.svg" />
         <span>UPCOMING</span>
     </div>
-    <a asp-controller="Assignments" asp-action="Edit" asp-route-id="@Model.Id">
-        <div class="assignment">
-            <div style="background: #F0AB67;" class="assignment__color_tag"></div>
-            <span class="assignment__name">Assignment name</span>
-            <span class="assignment__due_date">Due in 2 days</span>
-            <img class="assignment__arrow" src="/content/classArrow.svg" />
-        </div>
-    </a>
-    <a asp-controller="Assignments" asp-action="Edit" asp-route-id="@Model.Id">
-        <div class="assignment">
-            <div style="background: #F0AB67;" class="assignment__color_tag"></div>
-            <span class="assignment__name">Assignment name</span>
-            <span class="assignment__due_date">Due in 2 days</span>
-            <img class="assignment__arrow" src="/content/classArrow.svg" />
-        </div>
-    </a>
-    <a asp-controller="Assignments" asp-action="Edit" asp-route-id="@Model.Id">
-        <div class="assignment">
-            <div style="background: #F0AB67;" class="assignment__color_tag"></div>
-            <span class="assignment__name">Assignment name</span>
-            <span class="assignment__due_date">Due in 2 days</span>
-            <img class="assignment__arrow" src="/content/classArrow.svg" />
-        </div>
-    </a>
+
+    @{
+        foreach (var item in Model.Assignments)
+            if (item.DueDate.Date >= now.Date)
+            {
+                if (now.Date == item.DueDate.Date)
+                    dueDate = "Due Today";
+                else if (item.DueDate.Date == now.Date.AddDays(1))
+                    dueDate = "Due Tomorrow";
+                else if (item.DueDate.Date == now.Date.AddDays(2))
+                    dueDate = "Due in 2 Days";
+                else if (item.DueDate.Date == now.Date.AddDays(3))
+                    dueDate = "Due in 3 Days";
+                else if (item.DueDate.Date == now.Date.AddDays(4))
+                    dueDate = "Due in 4 Days";
+                else if (item.DueDate.Date == now.Date.AddDays(5))
+                    dueDate = "Due in 5 Days";
+                else if (item.DueDate.Date == now.Date.AddDays(6))
+                    dueDate = "Due in 6 Days";
+                else if (item.DueDate.Date == now.Date.AddDays(7))
+                    dueDate = "Due in a week";
+                else
+                    dueDate = $"Due {item.DueDate.ToString("dd/MM/yyyy")}";
+
+                <a asp-controller="Assignments" asp-action="Details" asp-route-id="@item.Id">
+                    <div class="assignment">
+                        <div style="background: #F0AB67;" class="assignment__color_tag"></div>
+                        <span class="assignment__name">@Html.DisplayFor(modelItem => item.Name)</span>
+                        <span class="assignment__due_date">@dueDate</span>
+                        <img class="assignment__arrow" src="/content/classArrow.svg" />
+                    </div>
+                </a>
+            }
+    }
 </div>
-*@
+
 
 <a asp-controller="Classes" asp-action="Edit" asp-route-id="@Model.Id">
     <div class="edit_class">
