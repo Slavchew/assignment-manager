@@ -105,7 +105,7 @@
             }
         }
 
-        if (Model.Assignments.Where(x => x.DueDate.Date < now.Date).Count() == 0)
+        if (Model.Assignments.Count() == 0)
         {
             <h2>NO ASSIGNMENTS</h2>
         }
