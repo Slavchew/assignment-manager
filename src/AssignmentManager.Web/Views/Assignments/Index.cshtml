@@ -15,15 +15,22 @@
 <h1 class="main_title">SCHEDULE</h1>
 
 <div class="assignments_container assignments_container--overdue">
-    <div class="status_arrow status_arrow--overdue">
-        <img src="/content/upcomingArrowBG.svg" />
-        <span>OVERDUE</span>
-    </div>
     @{
-        var dueDate = "";
         var now = DateTime.UtcNow;
+        var dueDate = "";
+
+        int debug = Model.Where(x => x.DueDate.Date < now.Date).Count();
+
+        if (Model.Where(x => x.DueDate.Date < now.Date).Count() > 0)
+        {
+            <div class="status_arrow status_arrow--overdue">
+                <img src="/content/upcomingArrowBG.svg" />
+                <span>OVERDUE</span>
+            </div>
+        }
 
         foreach (var item in Model)
+        {
             if (item.DueDate.Date < now.Date)
             {
                 if (item.DueDate.Date.AddDays(1) == now.Date)
@@ -52,16 +59,22 @@
                     </div>
                 </a>
             }
+        }
     }
 </div>
 
 <div class="assignments_container assignments_container--upcoming">
-    <div class="status_arrow status_arrow--upcoming">
-        <img src="/content/upcomingArrowBG.svg" />
-        <span>UPCOMING</span>
-    </div>
     @{
+        if (Model.Where(x => x.DueDate.Date >= now.Date).Count() > 0)
+        {
+            <div class="status_arrow status_arrow--upcoming">
+                <img src="/content/upcomingArrowBG.svg" />
+                <span>UPCOMING</span>
+            </div>
+        }
+
         foreach (var item in Model)
+        {
             if (item.DueDate.Date >= now.Date)
             {
                 if (now.Date == item.DueDate.Date)
@@ -92,6 +105,11 @@
                     </div>
                 </a>
             }
+        }
+        if (Model.Count() == 0)
+        {
+            <h2>NO ASSIGNMENTS</h2>
+        }
     }
 </div>
 
