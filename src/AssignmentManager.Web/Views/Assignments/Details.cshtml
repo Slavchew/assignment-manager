@@ -1,4 +1,5 @@
 ﻿@using AssignmentManager.Data
+@using System.Globalization
 @model AssignmentManager.Web.ViewModels.Assignment.AssignmentDetailsViewModel
 
 @{
@@ -20,7 +21,7 @@
 
 <h1 class="main_title">@Model.Name</h1>
 <span class="subtitle">@className</span>
-<span class="subtitle">Due @Model.DueDate.ToString("dd/MM/yyyy")</span>
+<span class="subtitle">Due @Model.DueDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)</span>
 <div class="divider"></div>
 <p class="description">@Model.Description</p>
 

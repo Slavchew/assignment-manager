@@ -1,4 +1,6 @@
-﻿@model IEnumerable<AssignmentManager.Services.Models.Assignment.DetailsAssignmentServiceModel>
+﻿@using AssignmentManager.Data
+@using System.Globalization
+@model IEnumerable<AssignmentManager.Services.Models.Assignment.DetailsAssignmentServiceModel>
 
 @{
     ViewData["Title"] = "Schedule";
@@ -29,8 +31,14 @@
             </div>
         }
 
+        var db = new AssignmentManagerDbContext();
+
         foreach (var item in Model)
         {
+            var assignmentClass = db.Classes.FirstOrDefault(x => x.Id == item.ClassId);
+            var classColorId = assignmentClass.ColorId;
+            var classColor = db.Colors.FirstOrDefault(x => x.Id == classColorId);
+
             if (item.DueDate.Date < now.Date)
             {
                 if (item.DueDate.Date.AddDays(1) == now.Date)
@@ -48,11 +56,11 @@
                 else if (item.DueDate.Date.AddDays(7) == now.Date)
                     dueDate = "Due a week ago";
                 else
-                    dueDate = $"Due {item.DueDate.ToString("dd/MM/yyyy")}";
+                    dueDate = $"Due {item.DueDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)}";
 
                 <a asp-controller="Assignments" asp-action="Details" asp-route-id="@item.Id">
                     <div class="assignment">
-                        <div style="background: #F0AB67;" class="assignment__color_tag"></div>
+                        <div style="background: @classColor.Name;" class="assignment__color_tag"></div>
                         <span class="assignment__name">@Html.DisplayFor(modelItem => item.Name)</span>
                         <span class="assignment__due_date">@dueDate</span>
                         <img class="assignment__arrow" src="/content/classArrow.svg" />
@@ -75,6 +83,10 @@
 
         foreach (var item in Model)
         {
+            var assignmentClass = db.Classes.FirstOrDefault(x => x.Id == item.ClassId);
+            var classColorId = assignmentClass.ColorId;
+            var classColor = db.Colors.FirstOrDefault(x => x.Id == classColorId);
+
             if (item.DueDate.Date >= now.Date)
             {
                 if (now.Date == item.DueDate.Date)
@@ -94,11 +106,11 @@
                 else if (item.DueDate.Date == now.Date.AddDays(7))
                     dueDate = "Due in a week";
                 else
-                    dueDate = $"Due {item.DueDate.ToString("dd/MM/yyyy")}";
+                    dueDate = $"Due {item.DueDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)}";
 
                 <a asp-controller="Assignments" asp-action="Details" asp-route-id="@item.Id">
                     <div class="assignment">
-                        <div style="background: #F0AB67;" class="assignment__color_tag"></div>
+                        <div style="background: @classColor.Name;" class="assignment__color_tag"></div>
                         <span class="assignment__name">@Html.DisplayFor(modelItem => item.Name)</span>
                         <span class="assignment__due_date">@dueDate</span>
                         <img class="assignment__arrow" src="/content/classArrow.svg" />
