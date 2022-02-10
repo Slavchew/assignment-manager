@@ -35,7 +35,21 @@
 .edit_assignment .form_input option {
   font-weight: 500;
 }
-.edit_assignment__name {
+.edit_assignment__l {
+  width: 220px;
+  height: 270px;
+  float: left;
+}
+.edit_assignment__l__name {
+  display: block;
+  float: left;
+}
+.edit_assignment__l__due_date {
+  display: block;
+  float: left;
+}
+.edit_assignment__l__class {
+  display: block;
   float: left;
 }
 .edit_assignment__description {
@@ -62,18 +76,6 @@
 .edit_assignment__description textarea:focus {
   outline: none;
   border: solid 2px rgba(0, 0, 0, 0.3);
-}
-.edit_assignment__description--mobile {
-  display: none;
-}
-.edit_assignment__description--desktop {
-  display: block;
-}
-.edit_assignment__due_date {
-  float: left;
-}
-.edit_assignment__class {
-  float: left;
 }
 
 .save {
@@ -127,30 +129,26 @@
     height: 660px;
     padding: 40px 0 0 0;
   }
-  .edit_assignment .form_input {
+  .edit_assignment__l {
     width: 320px;
   }
-  .edit_assignment__name {
+  .edit_assignment__l .form_input {
+    width: 320px;
+  }
+  .edit_assignment__l__name {
     float: none;
   }
-  .edit_assignment__due_date {
+  .edit_assignment__l__due_date {
     float: none;
   }
-  .edit_assignment__class {
+  .edit_assignment__l__class {
     float: none;
   }
   .edit_assignment__description {
-    float: none;
     padding: 0;
     width: 330px;
   }
   .edit_assignment__description textarea {
     width: 330px;
-  }
-  .edit_assignment__description--desktop {
-    display: none;
-  }
-  .edit_assignment__description--mobile {
-    display: block;
   }
 }

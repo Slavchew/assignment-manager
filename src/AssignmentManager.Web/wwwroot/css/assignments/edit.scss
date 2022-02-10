@@ -39,8 +39,25 @@
         }
     }
 
-    &__name {
+    &__l {
+        width: 220px;
+        height: 270px;
         float: left;
+
+        &__name {
+            display: block;
+            float: left;
+        }
+
+        &__due_date {
+            display: block;
+            float: left;
+        }
+
+        &__class {
+            display: block;
+            float: left;
+        }
     }
 
     &__description {
@@ -69,22 +86,6 @@
                 border: solid 2px rgba(0, 0, 0, 0.3);
             }
         }
-
-        &--mobile {
-            display: none;
-        }
-
-        &--desktop {
-            display: block;
-        }
-    }
-
-    &__due_date {
-        float: left;
-    }
-
-    &__class {
-        float: left;
     }
 }
 
@@ -141,37 +142,31 @@
         height: 660px;
         padding: 40px 0 0 0;
 
-        .form_input {
+        &__l {
             width: 320px;
-        }
+            .form_input {
+                width: 320px;
+            }
 
-        &__name {
-            float: none;
-        }
+            &__name {
+                float: none;
+            }
 
-        &__due_date {
-            float: none;
-        }
+            &__due_date {
+                float: none;
+            }
 
-        &__class {
-            float: none;
+            &__class {
+                float: none;
+            }
         }
 
         &__description {
-            float: none;
             padding: 0;
             width: 330px;
 
             textarea {
                 width: 330px;
-            }
-
-            &--desktop {
-                display: none;
-            }
-
-            &--mobile {
-                display: block;
             }
         }
     }

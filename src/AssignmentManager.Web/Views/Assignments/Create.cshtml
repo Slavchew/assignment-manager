@@ -16,43 +16,39 @@
 <h1 class="main_title">NEW ASSIGNMENT</h1>
 
 <form asp-action="Create" class="create_assignment">
-    <div class="create_assignment__name">
-        <label class="form_label" asp-for="Name">Assignment Title</label>
-        <input class="form_input" asp-for="Name" placeholder="Title" />
+    <div class="create_assignment__l">
+        <div class="create_assignment__l__name">
+            <label class="form_label" asp-for="Name">Assignment Title</label>
+            <input class="form_input" asp-for="Name" placeholder="Title" />
+        </div>
+
+        <div class="create_assignment__l__due_date">
+            <label class="form_label" asp-for="DueDate">Due Date</label>
+            <input class="form_input" type="date" asp-for="DueDate" />
+        </div>
+
+        <div class="create_assignment__l__class">
+            <label class="form_label" asp-for="ClassId">Class</label>
+            <select class="form_input" asp-for="ClassId">
+                @{
+                    var db = new AssignmentManagerDbContext();
+                    var classes = db.Classes.Select(x => new
+                    {
+                        x.Id,
+                        x.Name
+                    })
+                    .OrderBy(x => x.Id)
+                    .ToList();
+
+                    for (var i = 0; i < classes.Count; i++)
+                    {
+                        <option value="@classes[i].Id">@classes[i].Name</option>
+                    }
+                }
+            </select>
+        </div>
     </div>
-
-    <div class="create_assignment__description create_assignment__description--desktop">
-        <label class="form_label" asp-for="Description">Description</label>
-        <textarea asp-for="Description" placeholder="Description (optional)"></textarea>
-    </div>
-
-    <div class="create_assignment__due_date">
-        <label class="form_label" asp-for="DueDate">Due Date</label>
-        <input class="form_input" type="date" asp-for="DueDate" />
-    </div>
-
-    <div class="create_assignment__class">
-        <label class="form_label" asp-for="ClassId">Class</label>
-        <select class="form_input" asp-for="ClassId">
-        @{
-            var db = new AssignmentManagerDbContext();
-            var classes = db.Classes.Select(x => new
-            {
-                x.Id,
-                x.Name
-            })
-            .OrderBy(x => x.Id)
-            .ToList();
-
-            for (var i = 0; i < classes.Count; i++)
-            {
-                <option value="@classes[i].Id">@classes[i].Name</option>
-            }
-        }
-        </select>
-    </div>
-
-    <div class="create_assignment__description create_assignment__description--mobile">
+    <div class="create_assignment__description">
         <label class="form_label" asp-for="Description">Description</label>
         <textarea asp-for="Description" placeholder="Description (optional)"></textarea>
     </div>
