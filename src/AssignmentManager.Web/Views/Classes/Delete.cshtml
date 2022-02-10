@@ -14,13 +14,22 @@
 </script>
 
 
-<h1 class="main_title">Are you sure you want to<br> delete this class?</h1>
-<h1 class="class_name">@Html.DisplayFor(model => model.Name)</h1>
+<h1 class="main_title">Delete this Class?</h1>
+<span class="assignment_name">"@Html.DisplayFor(model => model.Name)"</span>
 
-<form asp-action="Delete" class="answer_container">
-    <button type="submit" value="Delete" class="choose_btn">YES</button>
-    <a asp-action="Index">
-        <div class="choose_btn">NO</div>
-    </a>
+<form asp-action="Delete">
+    <button type="submit" value="Delete" class="option">DELETE</button>
+    <a asp-action="Index" class="option">CANCEL</a>
 </form>
+
+
+
+
+
+
+
+
+
+
+
 
