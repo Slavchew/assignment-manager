@@ -31,6 +31,15 @@
   font-weight: 400;
   margin-bottom: 100px;
 }
+.description .no_description {
+  display: block;
+  margin: auto;
+  width: 200px;
+  text-align: center;
+  color: #777777;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
 
 .edit_assignment {
   position: fixed;

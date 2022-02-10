@@ -15,15 +15,23 @@
 </script>
 
 @{
-        var db = new AssignmentManagerDbContext();
-        var className = db.Classes.FirstOrDefault(x => x.Id == Model.ClassId).Name;
+    var db = new AssignmentManagerDbContext();
+    var className = db.Classes.FirstOrDefault(x => x.Id == Model.ClassId).Name;
 }
 
 <h1 class="main_title">@Model.Name</h1>
 <span class="subtitle">@className</span>
 <span class="subtitle">Due @Model.DueDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)</span>
 <div class="divider"></div>
-<p class="description">@Model.Description</p>
+<p class="description">
+    @Model.Description
+    @{
+        if (@Model.Description == null)
+        {
+            <span class="no_description">No Description</span>
+        }
+    }
+</p>
 
 
 <a asp-action="" asp-route-id="@Model.Id">
