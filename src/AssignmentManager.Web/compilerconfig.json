@@ -50,5 +50,9 @@
   {
     "outputFile": "wwwroot/css/classes/delete.css",
     "inputFile": "wwwroot/css/classes/delete.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/assignments/delete.css",
+    "inputFile": "wwwroot/css/assignments/delete.scss"
   }
 ]
