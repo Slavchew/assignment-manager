@@ -33,15 +33,24 @@ form {
         color: #ffffff;
         cursor: pointer;
         text-decoration: none;
+        transition: 0.3s all ease;
     }
 
     a {
         font-weight: 500;
     }
-
+ 
     button {
         background: #e13852;
         font-weight: 600;
+    }
+
+    a:hover {
+        transform: scale(104%);
+    }
+
+    button:hover {
+        transform: scale(104%);
     }
 }
 

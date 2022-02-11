@@ -33,6 +33,7 @@ form button, form a {
   color: #ffffff;
   cursor: pointer;
   text-decoration: none;
+  transition: 0.3s all ease;
 }
 form a {
   font-weight: 500;
@@ -40,6 +41,12 @@ form a {
 form button {
   background: #e13852;
   font-weight: 600;
+}
+form a:hover {
+  transform: scale(104%);
+}
+form button:hover {
+  transform: scale(104%);
 }
 
 @media (max-width: 610px) {
