@@ -41,11 +41,12 @@ body {
     font-weight: 500;
     line-height: 2rem;
     text-align: center;
-}
 
-.plus_icon {
-    width: 35px;
-    transform: translate(0, 20%);
+    img {
+        margin: 0 5px 0 5px;
+        width: 35px;
+        transform: translate(0, 20%);
+    }
 }
 
 .bottom_wave {

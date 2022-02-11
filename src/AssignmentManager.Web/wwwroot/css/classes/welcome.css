@@ -41,8 +41,8 @@ body {
   line-height: 2rem;
   text-align: center;
 }
-
-.plus_icon {
+.welcome__instructions img {
+  margin: 0 5px 0 5px;
   width: 35px;
   transform: translate(0, 20%);
 }
