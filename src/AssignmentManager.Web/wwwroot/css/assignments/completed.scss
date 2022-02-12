@@ -3,8 +3,7 @@
     text-align: center;
     font-weight: 500;
     font-size: 2.5rem;
-    color: #222222;
-    text-transform: uppercase;
+    color: #222222
 }
 
 .assignments_container {
@@ -14,11 +13,7 @@
     align-items: center;
     row-gap: 15px;
 
-    &--overdue {
-        margin: 0 0 15px 0;
-    }
-
-    &--upcoming {
+    &--completed {
         margin: 0 0 calc(2rem + 100px) 0;
     }
 
@@ -34,14 +29,15 @@
             font-size: 1.2rem;
             font-weight: 600;
             color: #ffffff;
-            left: 17px;
+            left: 12px;
         }
 
-        &--overdue {
-            filter: hue-rotate(140deg);
-
+        &--completed {
+            img {
+                filter: hue-rotate(260deg) saturate(200%);
+            }
             span {
-                margin: 0 0 0 7px;
+                margin: 0 0 0 0px;
             }
         }
     }
@@ -132,6 +128,8 @@
     }
 }
 
+
+
 .add_assignment {
     position: fixed;
     right: 2rem;
@@ -158,23 +156,6 @@
     }
 }
 
-.edit_class {
-    position: fixed;
-    right: 8rem;
-    bottom: 2rem;
-    height: 75px;
-    width: 75px;
-    background: #006FBB;
-    border-radius: 50%;
-
-    img {
-        width: 40px;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
-    }
-}
 
 
 @media (max-width: 610px) {
@@ -186,11 +167,7 @@
         padding: 0;
         gap: 0px;
 
-        &--overdue {
-            margin: 0;
-        }
-
-        &--upcoming {
+        &--completed {
             margin: 0 0 140px 0;
         }
 
@@ -215,12 +192,8 @@
                 left: 35px;
             }
 
-            &--overdue {
-                filter: hue-rotate(140deg)
-            }
-
-            &--upcoming {
-                filter: hue-rotate(8deg)
+            &--completed {
+                filter: hue-rotate(260deg) saturate(200%);
             }
         }
 

@@ -28,6 +28,13 @@ namespace AssignmentManager.Web.Controllers
             return this.View(assignments);
         }
 
+        public IActionResult Completed()
+        {
+            var assignments = this.assignmentsService.GetAll();
+
+            return this.View(assignments);
+        }
+
         public IActionResult Create()
         {
             return this.View();

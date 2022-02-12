@@ -54,5 +54,9 @@
   {
     "outputFile": "wwwroot/css/assignments/delete.css",
     "inputFile": "wwwroot/css/assignments/delete.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/assignments/completed.css",
+    "inputFile": "wwwroot/css/assignments/completed.scss"
   }
 ]

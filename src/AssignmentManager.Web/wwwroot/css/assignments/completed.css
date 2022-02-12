@@ -4,7 +4,6 @@
   font-weight: 500;
   font-size: 2.5rem;
   color: #222222;
-  text-transform: uppercase;
 }
 
 .assignments_container {
@@ -14,10 +13,7 @@
   align-items: center;
   row-gap: 15px;
 }
-.assignments_container--overdue {
-  margin: 0 0 15px 0;
-}
-.assignments_container--upcoming {
+.assignments_container--completed {
   margin: 0 0 calc(2rem + 100px) 0;
 }
 .assignments_container .status_arrow {
@@ -32,13 +28,13 @@
   font-size: 1.2rem;
   font-weight: 600;
   color: #ffffff;
-  left: 17px;
+  left: 12px;
 }
-.assignments_container .status_arrow--overdue {
-  filter: hue-rotate(140deg);
+.assignments_container .status_arrow--completed img {
+  filter: hue-rotate(260deg) saturate(200%);
 }
-.assignments_container .status_arrow--overdue span {
-  margin: 0 0 0 7px;
+.assignments_container .status_arrow--completed span {
+  margin: 0 0 0 0px;
 }
 .assignments_container .assignment {
   position: relative;
@@ -138,23 +134,6 @@
   height: 7px;
 }
 
-.edit_class {
-  position: fixed;
-  right: 8rem;
-  bottom: 2rem;
-  height: 75px;
-  width: 75px;
-  background: #006FBB;
-  border-radius: 50%;
-}
-.edit_class img {
-  width: 40px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-}
-
 @media (max-width: 610px) {
   .main_title {
     display: none;
@@ -164,10 +143,7 @@
     padding: 0;
     gap: 0px;
   }
-  .assignments_container--overdue {
-    margin: 0;
-  }
-  .assignments_container--upcoming {
+  .assignments_container--completed {
     margin: 0 0 140px 0;
   }
   .assignments_container .status_arrow {
@@ -189,11 +165,8 @@
     color: #ffffff;
     left: 35px;
   }
-  .assignments_container .status_arrow--overdue {
-    filter: hue-rotate(140deg);
-  }
-  .assignments_container .status_arrow--upcoming {
-    filter: hue-rotate(8deg);
+  .assignments_container .status_arrow--completed {
+    filter: hue-rotate(260deg) saturate(200%);
   }
   .assignments_container a {
     width: 100%;

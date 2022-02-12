@@ -29,7 +29,7 @@
 .assignments_container .status_arrow span {
   position: absolute;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #ffffff;
   left: 15px;
 }
@@ -111,6 +111,19 @@
 .assignments_container .no_assignments div span img {
   width: 25px;
   transform: translate(0, 20%);
+}
+
+.completed_assignments {
+  position: fixed;
+  right: 8rem;
+  bottom: 2rem;
+  height: 75px;
+  width: 75px;
+  background: #006FBB;
+  border-radius: 50%;
+}
+.completed_assignments img {
+  transform: translate(45%, 60%);
 }
 
 .add_assignment {
