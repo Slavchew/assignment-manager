@@ -1,0 +1,16 @@
+﻿@model AssignmentManager.Web.ViewModels.Assignment.AssignmentDetailsViewModel
+
+@{
+    ViewData["Title"] = "SignIn";
+    Layout = null;
+}
+<link rel="stylesheet" href="/css/account/signIn.css" />
+
+<h1 class="main_title">SIGN IN</h1>
+
+<span class="assignment_name">"@Html.DisplayFor(model => model.Name)"</span>
+
+<form asp-action="SignIn">
+    <button type="submit" value="Delete" class="option">DELETE</button>
+    <a asp-action="Index" class="option">CANCEL</a>
+</form>
