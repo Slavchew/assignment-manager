@@ -27,7 +27,7 @@
             </div>
         }
 
-        foreach (var item in Model.Assignments)
+        foreach (var item in Model.Assignments.OrderBy(x => x.DueDate))
         {
             if (item.DueDate.Date < now.Date)
             {
@@ -71,7 +71,7 @@
             </div>
         }
 
-        foreach (var item in Model.Assignments)
+        foreach (var item in Model.Assignments.OrderBy(x => x.DueDate))
         {
             if (item.DueDate.Date >= now.Date)
             {
