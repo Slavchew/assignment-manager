@@ -1,0 +1,67 @@
+﻿.main_title {
+  padding: 50px 0 20px 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: #222222;
+}
+
+.assignment_name {
+  display: block;
+  width: 70%;
+  text-align: center;
+  font-size: 1.8rem;
+  margin: auto;
+}
+
+form {
+  margin: 130px auto 0 auto;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+}
+form button, form a {
+  margin: 20px 50px 20px 50px;
+  text-align: center;
+  font-size: 1.3rem;
+  height: 60px;
+  line-height: 60px;
+  width: 200px;
+  border: none;
+  background: #006FBB;
+  border-radius: 99px;
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s all ease;
+}
+form a {
+  font-weight: 600;
+}
+form button {
+  background: #5cb85c;
+  font-weight: 600;
+}
+form a:hover {
+  transform: scale(104%);
+}
+form button:hover {
+  transform: scale(104%);
+}
+
+@media (max-width: 610px) {
+  form {
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+  form button, form a {
+    width: 250px;
+  }
+
+  .assignment_name {
+    margin: 40px auto 0 auto;
+  }
+}

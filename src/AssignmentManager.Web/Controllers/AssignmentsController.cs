@@ -80,6 +80,7 @@ namespace AssignmentManager.Web.Controllers
                 ClassId = assignment.ClassId,
                 DueDate = assignment.DueDate,
                 Description = assignment.Description,
+                IsCompleted = assignment.IsCompleted,
             };
 
             return this.View(viewModel);
@@ -105,6 +106,7 @@ namespace AssignmentManager.Web.Controllers
                 ClassId = assignment.ClassId,
                 DueDate = assignment.DueDate,
                 Description = assignment.Description,
+                IsCompleted = assignment.IsCompleted,
             };
 
             return this.View(viewModel);
@@ -131,6 +133,7 @@ namespace AssignmentManager.Web.Controllers
                 ClassId = model.ClassId,
                 DueDate = model.DueDate,
                 Description = model.Description,
+                IsCompleted = model.IsCompleted,
             };
 
             this.assignmentsService.Edit(easm);
@@ -157,6 +160,7 @@ namespace AssignmentManager.Web.Controllers
                 ClassId = assignment.ClassId,
                 DueDate = assignment.DueDate,
                 Description = assignment.Description,
+                IsCompleted = assignment.IsCompleted,
             };
 
             return this.View(cdvm);
@@ -171,6 +175,37 @@ namespace AssignmentManager.Web.Controllers
             {
                 return this.RedirectToAction("Error", "Home");
             }
+
+            return this.RedirectToAction("Index", "Assignments");
+        }
+
+        [HttpGet]
+        public IActionResult Complete(int id)
+        {
+            var assignment = this.assignmentsService.GetById(id);
+
+            if (assignment.Name == null)
+            {
+                return this.BadRequest();
+            }
+
+            var cdvm = new AssignmentDetailsViewModel()
+            {
+                Id = assignment.Id,
+                Name = assignment.Name,
+                ClassId = assignment.ClassId,
+                DueDate = assignment.DueDate,
+                Description = assignment.Description,
+                IsCompleted = assignment.IsCompleted,
+            };
+
+            return this.View(cdvm);
+        }
+
+        [HttpPost]
+        public IActionResult Complete(AssignmentDetailsViewModel model)
+        {
+            this.assignmentsService.Complete(model.Id);
 
             return this.RedirectToAction("Index", "Assignments");
         }

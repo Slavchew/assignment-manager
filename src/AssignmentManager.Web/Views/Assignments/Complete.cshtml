@@ -1,0 +1,16 @@
+﻿@model AssignmentManager.Web.ViewModels.Assignment.AssignmentDetailsViewModel
+
+@{
+    ViewData["Title"] = "Complete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="/css/assignments/complete.css" />
+
+<h1 class="main_title">Complete this Assignment?</h1>
+
+<span class="assignment_name">"@Html.DisplayFor(model => model.Name)"</span>
+
+<form asp-action="Complete">
+    <button type="submit" value="Complete" class="option">Complete</button>
+    <a asp-action="Index" class="option">CANCEL</a>
+</form>

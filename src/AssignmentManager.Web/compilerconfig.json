@@ -62,5 +62,9 @@
   {
     "outputFile": "wwwroot/css/Account/SignIn.css",
     "inputFile": "wwwroot/css/Account/SignIn.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/assignments/complete.css",
+    "inputFile": "wwwroot/css/assignments/complete.scss"
   }
 ]

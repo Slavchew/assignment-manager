@@ -13,6 +13,8 @@ namespace AssignmentManager.Services
 
         bool Remove(int id);
 
+        void Complete(int model);
+
         bool Exists(int assignmentId);
 
         IEnumerable<DetailsAssignmentServiceModel> GetAll();

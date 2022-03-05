@@ -30,6 +30,7 @@ namespace AssignmentManager.Services.Implementations
                 ClassId = assignment.ClassId,
                 DueDate = assignment.DueDate,
                 Description = assignment.Description,
+                IsCompleted = assignment.IsCompleted,
             };
 
             return dcsm;
@@ -94,6 +95,17 @@ namespace AssignmentManager.Services.Implementations
             }
 
             return true;
+        }
+
+        public void Complete(int id)
+        {
+            var assignment = this.db
+                .Assignments
+                .Include(x => x.Class)
+                .FirstOrDefault(a => a.Id == id);
+
+            assignment.IsCompleted = true;
+            this.db.SaveChanges();
         }
 
         public bool Exists(int assignmentId)
