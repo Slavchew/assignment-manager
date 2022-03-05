@@ -1,4 +1,5 @@
 using AssignmentManager.Data;
+using AssignmentManager.Data.Seeding;
 using AssignmentManager.Services;
 using AssignmentManager.Services.Implementations;
 using Microsoft.AspNetCore.Builder;
@@ -40,14 +41,12 @@ namespace AssignmentManager.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            /* Seed data on application startup
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
                 var dbContext = serviceScope.ServiceProvider.GetRequiredService<AssignmentManagerDbContext>();
                 dbContext.Database.Migrate();
-                new AssignmentManagerDbContext().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
+                new Seeder().Seed(dbContext, serviceScope.ServiceProvider);
             }
-            */
 
             if (env.IsDevelopment())
             {
