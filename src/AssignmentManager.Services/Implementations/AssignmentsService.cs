@@ -108,6 +108,17 @@ namespace AssignmentManager.Services.Implementations
             this.db.SaveChanges();
         }
 
+        public void Uncomplete(int id)
+        {
+            var assignment = this.db
+                .Assignments
+                .Include(x => x.Class)
+                .FirstOrDefault(a => a.Id == id);
+
+            assignment.IsCompleted = false;
+            this.db.SaveChanges();
+        }
+
         public bool Exists(int assignmentId)
         {
             return this.db

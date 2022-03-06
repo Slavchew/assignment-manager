@@ -31,7 +31,7 @@
 
         var db = new AssignmentManagerDbContext();
 
-        foreach (var item in Model)
+        foreach (var item in Model.OrderBy(x => x.DueDate))
         {
             var assignmentClass = db.Classes.FirstOrDefault(x => x.Id == item.ClassId);
             var classColorId = assignmentClass.ColorId;
@@ -79,7 +79,7 @@
             </div>
         }
 
-        foreach (var item in Model)
+        foreach (var item in Model.OrderBy(x => x.DueDate))
         {
             var assignmentClass = db.Classes.FirstOrDefault(x => x.Id == item.ClassId);
             var classColorId = assignmentClass.ColorId;
@@ -116,7 +116,7 @@
                 </a>
             }
         }
-        if (Model.Count() == 0)
+        if (Model.Where(x => !x.IsCompleted).Count() == 0)
         {
             <div class="no_assignments">
                 <img class="blue_cat" src="/content/blueCatShadow.svg">

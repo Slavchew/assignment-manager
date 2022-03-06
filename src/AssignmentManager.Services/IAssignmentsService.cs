@@ -13,7 +13,9 @@ namespace AssignmentManager.Services
 
         bool Remove(int id);
 
-        void Complete(int model);
+        void Complete(int id);
+
+        void Uncomplete(int id);
 
         bool Exists(int assignmentId);
 

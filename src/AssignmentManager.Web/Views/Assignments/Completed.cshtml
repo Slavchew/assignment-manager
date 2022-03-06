@@ -31,7 +31,7 @@
 
         var db = new AssignmentManagerDbContext();
 
-        foreach (var item in Model)
+        foreach (var item in Model.OrderBy(x => x.DueDate))
         {
             var assignmentClass = db.Classes.FirstOrDefault(x => x.Id == item.ClassId);
             var classColorId = assignmentClass.ColorId;

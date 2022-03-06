@@ -209,5 +209,36 @@ namespace AssignmentManager.Web.Controllers
 
             return this.RedirectToAction("Index", "Assignments");
         }
+
+        [HttpGet]
+        public IActionResult Uncomplete(int id)
+        {
+            var assignment = this.assignmentsService.GetById(id);
+
+            if (assignment.Name == null)
+            {
+                return this.BadRequest();
+            }
+
+            var cdvm = new AssignmentDetailsViewModel()
+            {
+                Id = assignment.Id,
+                Name = assignment.Name,
+                ClassId = assignment.ClassId,
+                DueDate = assignment.DueDate,
+                Description = assignment.Description,
+                IsCompleted = assignment.IsCompleted,
+            };
+
+            return this.View(cdvm);
+        }
+
+        [HttpPost]
+        public IActionResult Uncomplete(AssignmentDetailsViewModel model)
+        {
+            this.assignmentsService.Uncomplete(model.Id);
+
+            return this.RedirectToAction("Index", "Assignments");
+        }
     }
 }

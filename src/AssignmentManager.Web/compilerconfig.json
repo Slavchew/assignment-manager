@@ -66,5 +66,9 @@
   {
     "outputFile": "wwwroot/css/assignments/complete.css",
     "inputFile": "wwwroot/css/assignments/complete.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/assignments/uncomplete.css",
+    "inputFile": "wwwroot/css/assignments/uncomplete.scss"
   }
 ]

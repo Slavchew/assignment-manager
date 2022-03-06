@@ -34,24 +34,26 @@
 </p>
 
 
-<a asp-action="Complete" asp-route-id="@Model.Id"> 
-    @{
-        if (Model.IsCompleted)
-        {
-            // On Click IsCompleted = false;
+
+@{
+    if (Model.IsCompleted)
+    {
+        // On Click IsCompleted = false;
+        <a asp-action="Uncomplete" asp-route-id="@Model.Id">
             <div class="complete_assignment">
                 <span>UNCOMPLETE</span>
             </div>
-        }
-        else
-        {
+        </a>
+    }
+    else
+    {
+        <a asp-action="Complete" asp-route-id="@Model.Id">
             <div class="complete_assignment">
                 <span>COMPLETE</span>
             </div>
-        }
+        </a>
     }
-
-</a>
+}
 
 <a asp-action="Edit" asp-route-id="@Model.Id">
     <div class="edit_assignment">
