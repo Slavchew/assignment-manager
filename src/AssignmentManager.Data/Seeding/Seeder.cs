@@ -21,22 +21,22 @@ namespace AssignmentManager.Data.Seeding
             if (!context.Colors.Any())
             {
                 context.Colors.AddRange(
-                    new Color() { Name = "#FF935B" },
-                    new Color() { Name = "#FF72BE" },
-                    new Color() { Name = "#AA36E1" },
-                    new Color() { Name = "#732537" },
-                    new Color() { Name = "#31569C" },
-                    new Color() { Name = "#929292" },
-                    new Color() { Name = "#CDAD08" },
-                    new Color() { Name = "#165239" },
-                    new Color() { Name = "#DE6285" },
-                    new Color() { Name = "#6949FC" },
-                    new Color() { Name = "#BE781F" },
-                    new Color() { Name = "#111111" },
-                    new Color() { Name = "#63C1FF" },
-                    new Color() { Name = "#65E97B" },
-                    new Color() { Name = "#FF2222" },
-                    new Color() { Name = "#F7E7CE" });
+                    new Color() { Name = "#F94144" },
+                    new Color() { Name = "#F9844A" },
+                    new Color() { Name = "#F8961E" },
+                    new Color() { Name = "#F9C74F" },
+                    new Color() { Name = "#90BE6D" },
+                    new Color() { Name = "#80B376" },
+                    new Color() { Name = "#4D908E" },
+                    new Color() { Name = "#577590" },
+                    new Color() { Name = "#3F7999" },
+                    new Color() { Name = "#277DA1" },
+                    new Color() { Name = "#1B9AAA" },
+                    new Color() { Name = "#07004D" },
+                    new Color() { Name = "#9B7EDE" },
+                    new Color() { Name = "#8338EC" },
+                    new Color() { Name = "#A846A0" },
+                    new Color() { Name = "#FFD2FC" });
 
                 context.SaveChanges();
             }
