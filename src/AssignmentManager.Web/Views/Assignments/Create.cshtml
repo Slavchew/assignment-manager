@@ -24,11 +24,13 @@
         <div class="create_assignment__l__name">
             <label class="form_label" asp-for="Name">Assignment Title</label>
             <input class="form_input" asp-for="Name" placeholder="Title" />
+            <span asp-validation-for="Name" style="color: #D94C55;"></span>
         </div>
 
         <div class="create_assignment__l__due_date">
             <label class="form_label" asp-for="DueDate">Due Date</label>
             <input class="form_input" type="date" asp-for="DueDate" />
+            <span asp-validation-for="DueDate" style="color: #D94C55;"></span>
         </div>
 
         <div class="create_assignment__l__class">
@@ -36,7 +38,7 @@
             @{
                 if (!db.Classes.Any())
                 {
-                    <select style="appearance: none; opacity: 50%;" disabled="true" class="form_input" asp-for="ClassId">
+                    <select style="appearance: none; opacity: 50%; pointer-events: none" class="form_input" asp-for="ClassId">
                         <option value="0" disabled selected>NO CLASSES</option>
                     </select>
                 }
@@ -60,6 +62,8 @@
                     </select>
                 }
             }
+
+            <span asp-validation-for="ClassId" style="color: #D94C55;"></span>
         </div>
     </div>
     <div class="create_assignment__description">

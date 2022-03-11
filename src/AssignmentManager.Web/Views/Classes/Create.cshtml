@@ -19,9 +19,11 @@
 <form asp-action="Create" class="form_create_class">
     <label class="form_create_class__label" asp-for="Name">Class Title</label>
     <input class="form_create_class__name_input" asp-for="Name" placeholder="Title" />
-    @*<span asp-validation-for="Name"></span>*@
+    <span asp-validation-for="Name" style="color: #D94C55;"></span>
+
 
     <label class="form_create_class__label">Class Color</label>
+
     <div class="form_create_class__color_input">
         @{
             var db = new AssignmentManagerDbContext();
@@ -36,6 +38,10 @@
 
         }
     </div>
+
+    <span asp-validation-for="ColorId" style="color: #D94C55;"></span>
+
+
     <div>
         <button type="submit" class="save_class">
             <img src="/content/save.png" />
