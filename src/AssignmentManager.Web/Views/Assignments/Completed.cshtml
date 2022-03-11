@@ -29,6 +29,17 @@
             </div>
         }
 
+        if (Model.Where(x => x.IsCompleted == true).Count() == 0)
+        {
+            <div class="no_completed_assignments">
+                <img class="blue_cat" src="/content/blueCatShadow.svg">
+                <div>
+                    <h2>NO COMPLETED ASSIGNMENTS</h2>
+                    <span>Add an assignment with the " <img src="/content/plus.svg" /> " icon.</span>
+                </div>
+            </div>
+        }
+
         var db = new AssignmentManagerDbContext();
 
         foreach (var item in Model.OrderBy(x => x.DueDate))

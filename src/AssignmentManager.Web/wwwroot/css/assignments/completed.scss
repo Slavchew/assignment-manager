@@ -36,6 +36,7 @@
             img {
                 filter: hue-rotate(260deg) saturate(200%);
             }
+
             span {
                 margin: 0 0 0 0px;
             }
@@ -93,7 +94,7 @@
         }
     }
 
-    .no_assignments {
+    .no_completed_assignments {
         margin: 30px 0 0 0;
         width: 600px;
         display: flex;
@@ -105,7 +106,7 @@
         }
 
         div {
-            margin: 50px 0 0 0;
+            margin: 30px 0 0 0;
 
             h2 {
                 font-size: 1.6rem;

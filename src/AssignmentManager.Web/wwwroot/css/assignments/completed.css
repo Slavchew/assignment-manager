@@ -81,31 +81,31 @@
 .assignments_container .assignment:hover {
   transform: scale(104%);
 }
-.assignments_container .no_assignments {
+.assignments_container .no_completed_assignments {
   margin: 30px 0 0 0;
   width: 600px;
   display: flex;
   justify-content: center;
   gap: 50px;
 }
-.assignments_container .no_assignments .blue_cat {
+.assignments_container .no_completed_assignments .blue_cat {
   width: 250px;
 }
-.assignments_container .no_assignments div {
-  margin: 50px 0 0 0;
+.assignments_container .no_completed_assignments div {
+  margin: 30px 0 0 0;
 }
-.assignments_container .no_assignments div h2 {
+.assignments_container .no_completed_assignments div h2 {
   font-size: 1.6rem;
   color: #222222;
   font-weight: 600;
   margin-bottom: 20px;
 }
-.assignments_container .no_assignments div span {
+.assignments_container .no_completed_assignments div span {
   color: #222222;
   font-size: 1.4rem;
   font-weight: 500;
 }
-.assignments_container .no_assignments div span img {
+.assignments_container .no_completed_assignments div span img {
   width: 25px;
   transform: translate(0, 20%);
 }
