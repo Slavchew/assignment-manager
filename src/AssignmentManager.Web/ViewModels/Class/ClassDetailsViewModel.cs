@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using AssignmentManager.Web.ViewModels.Assignment;
 
 namespace AssignmentManager.Web.ViewModels.Class
@@ -7,6 +8,8 @@ namespace AssignmentManager.Web.ViewModels.Class
     {
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         public string Color { get; set; }
