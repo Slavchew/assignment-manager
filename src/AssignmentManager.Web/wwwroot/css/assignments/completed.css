@@ -14,7 +14,7 @@
   row-gap: 15px;
 }
 .assignments_container--completed {
-  margin: 0 0 calc(2rem + 100px) 0;
+  margin: 15px 0 calc(2rem + 100px) 0;
 }
 .assignments_container .status_arrow {
   position: absolute;
@@ -31,7 +31,7 @@
   left: 12px;
 }
 .assignments_container .status_arrow--completed img {
-  filter: hue-rotate(260deg) saturate(200%);
+  filter: invert(56%) sepia(81%) saturate(301%) hue-rotate(71deg) brightness(96%) contrast(89%);
 }
 .assignments_container .status_arrow--completed span {
   margin: 0 0 0 0px;
@@ -166,7 +166,7 @@
     left: 35px;
   }
   .assignments_container .status_arrow--completed {
-    filter: hue-rotate(260deg) saturate(200%);
+    background: #5cb85c;
   }
   .assignments_container a {
     width: 100%;

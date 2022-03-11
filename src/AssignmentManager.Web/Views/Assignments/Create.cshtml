@@ -15,6 +15,10 @@
 
 <h1 class="main_title">NEW ASSIGNMENT</h1>
 
+@{
+    var db = new AssignmentManagerDbContext();
+}
+
 <form asp-action="Create" class="create_assignment">
     <div class="create_assignment__l">
         <div class="create_assignment__l__name">
@@ -29,23 +33,33 @@
 
         <div class="create_assignment__l__class">
             <label class="form_label" asp-for="ClassId">Class</label>
-            <select class="form_input" asp-for="ClassId">
-                @{
-                    var db = new AssignmentManagerDbContext();
-                    var classes = db.Classes.Select(x => new
-                    {
-                        x.Id,
-                        x.Name
-                    })
-                    .OrderBy(x => x.Id)
-                    .ToList();
-
-                    for (var i = 0; i < classes.Count; i++)
-                    {
-                        <option value="@classes[i].Id">@classes[i].Name</option>
-                    }
+            @{
+                if (!db.Classes.Any())
+                {
+                    <select style="appearance: none; opacity: 50%;" disabled="true" class="form_input" asp-for="ClassId">
+                        <option value="" disabled selected>NO CLASSES</option>
+                    </select>
                 }
-            </select>
+                else
+                {
+                    <select class="form_input" asp-for="ClassId">
+                        @{
+                            var classes = db.Classes.Select(x => new
+                            {
+                                x.Id,
+                                x.Name
+                            })
+                            .OrderBy(x => x.Id)
+                            .ToList();
+
+                            for (var i = 0; i < classes.Count; i++)
+                            {
+                                <option value="@classes[i].Id">@classes[i].Name</option>
+                            }
+                        }
+                    </select>
+                }
+            }
         </div>
     </div>
     <div class="create_assignment__description">
