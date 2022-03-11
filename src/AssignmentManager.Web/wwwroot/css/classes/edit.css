@@ -46,6 +46,7 @@
   width: 67px;
   height: 67px;
   cursor: pointer;
+  transition: 0.3s all ease;
 }
 .form_edit_class__color_input .color_box:hover {
   transform: scale(107%);
