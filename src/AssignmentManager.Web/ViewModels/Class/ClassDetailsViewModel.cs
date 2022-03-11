@@ -8,10 +8,11 @@ namespace AssignmentManager.Web.ViewModels.Class
     {
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "My custom error message.")]
+        [MaxLength(50, ErrorMessage = "My custom error message.")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "My custom error message.")]
         public string Color { get; set; }
 
         public ICollection<AssignmentDetailsViewModel> Assignments { get; set; }
