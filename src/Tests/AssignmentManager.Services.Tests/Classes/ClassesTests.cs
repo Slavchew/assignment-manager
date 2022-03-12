@@ -57,7 +57,7 @@ namespace AssignmentManager.Services.Tests.Classes
         [TestCase(1000000)]
         public void GetByIdShouldThrowExceptionForInvalidId(int id)
         {
-            Assert.Throws<ArgumentException>(() => service.GetById(id));
+            Assert.Throws<InvalidOperationException>(() => service.GetById(id));
         }
 
         [TestCase(1)]
@@ -149,9 +149,10 @@ namespace AssignmentManager.Services.Tests.Classes
 
             var oldClassObj = service.GetById(id);
             service.Edit(model);
-            var NewclassObj = service.GetById(id);
+            var newClassObj = service.GetById(id);
 
-            Assert.AreEqual(name, NewclassObj.Name);
+            Assert.AreEqual(name, newClassObj.Name);
+            Assert.AreEqual(color, newClassObj.Color);
 
             // To Use Same Data
             var oldModel = new EditClassServiceModel()
@@ -179,6 +180,7 @@ namespace AssignmentManager.Services.Tests.Classes
             Assert.Throws<InvalidOperationException>(() => { service.Edit(model); });
         }
 
+        /*
         [TestCase(1)]
         [TestCase(3)]
         [TestCase(5)]
@@ -203,6 +205,7 @@ namespace AssignmentManager.Services.Tests.Classes
 
             service.Create(model);
         }
+        */
 
         [TestCase(-1)]
         [TestCase(100000000)]

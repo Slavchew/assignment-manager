@@ -27,7 +27,7 @@ namespace AssignmentManager.Services.Implementations
 
             if (classObj == null)
             {
-                throw new ArgumentException();
+                throw new InvalidOperationException();
             }
 
             var dcsm = new DetailsClassServiceModel()

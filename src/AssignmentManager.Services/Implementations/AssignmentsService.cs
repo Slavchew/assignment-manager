@@ -23,6 +23,11 @@ namespace AssignmentManager.Services.Implementations
                 .Include(x => x.Class)
                 .FirstOrDefault(x => x.Id == id);
 
+            if (assignment == null)
+            {
+                throw new InvalidOperationException();
+            }
+
             var dcsm = new DetailsAssignmentServiceModel()
             {
                 Id = assignment.Id,
@@ -39,6 +44,11 @@ namespace AssignmentManager.Services.Implementations
         public void Create(CreateAssignmentServiceModel model)
         {
             var classObj = this.db.Classes.FirstOrDefault(x => x.Id == model.ClassId);
+
+            if (classObj == null)
+            {
+                throw new InvalidOperationException("Class cannot be found");
+            }
 
             var assignment = new Assignment()
             {
@@ -104,6 +114,11 @@ namespace AssignmentManager.Services.Implementations
                 .Include(x => x.Class)
                 .FirstOrDefault(a => a.Id == id);
 
+            if (assignment == null)
+            {
+                throw new InvalidOperationException();
+            }
+
             assignment.IsCompleted = true;
             this.db.SaveChanges();
         }
@@ -114,6 +129,11 @@ namespace AssignmentManager.Services.Implementations
                 .Assignments
                 .Include(x => x.Class)
                 .FirstOrDefault(a => a.Id == id);
+
+            if (assignment == null)
+            {
+                throw new InvalidOperationException();
+            }
 
             assignment.IsCompleted = false;
             this.db.SaveChanges();
