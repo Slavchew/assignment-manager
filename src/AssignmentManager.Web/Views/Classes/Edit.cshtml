@@ -19,7 +19,7 @@
 <form asp-action="Edit" class="form_edit_class">
     <label class="form_edit_class__label" asp-for="Name">Class Title</label>
     <input class="form_edit_class__name_input" asp-for="Name" placeholder="Title" />
-    <span asp-validation-for="Name" style="color: #D94C55;"></span>
+    <span asp-validation-for="Name" class="validation_error" style="color: #D94C55;"></span>
 
     <label class="form_edit_class__label">Class Color</label>
     <div class="form_edit_class__color_input">
@@ -37,7 +37,7 @@
 
     </div>
 
-    <span asp-validation-for="Color" style="color: #D94C55;"></span>
+    <span asp-validation-for="Color" class="validation_error" style="color: #D94C55;"></span>
 
 
     <a asp-controller="Classes" asp-action="Delete" asp-route-id="@Model.Id">

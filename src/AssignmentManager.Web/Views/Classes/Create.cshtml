@@ -19,7 +19,7 @@
 <form asp-action="Create" class="form_create_class">
     <label class="form_create_class__label" asp-for="Name">Class Title</label>
     <input class="form_create_class__name_input" asp-for="Name" placeholder="Title" />
-    <span asp-validation-for="Name" style="color: #D94C55;"></span>
+    <span asp-validation-for="Name" class="validation_error" style="color: #D94C55;"></span>
 
 
     <label class="form_create_class__label">Class Color</label>
@@ -39,7 +39,7 @@
         }
     </div>
 
-    <span asp-validation-for="ColorId" style="color: #D94C55;"></span>
+    <span asp-validation-for="ColorId" class="validation_error" style="color: #D94C55;"></span>
 
 
     <div>
