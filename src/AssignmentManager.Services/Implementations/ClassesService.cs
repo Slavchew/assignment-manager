@@ -25,11 +25,16 @@ namespace AssignmentManager.Services.Implementations
                 .Include(x => x.Assignments)
                 .FirstOrDefault(x => x.Id == id);
 
+            if (classObj == null)
+            {
+                throw new ArgumentException();
+            }
+
             var dcsm = new DetailsClassServiceModel()
             {
-                Id = classObj?.Id,
-                Name = classObj?.Name,
-                Color = classObj?.Color.Name,
+                Id = classObj.Id,
+                Name = classObj.Name,
+                Color = classObj.Color.Name,
             };
 
             List<DetailsAssignmentServiceModel> assignments = new List<DetailsAssignmentServiceModel>();
@@ -57,6 +62,11 @@ namespace AssignmentManager.Services.Implementations
         public void Create(CreateClassServiceModel model)
         {
             var color = this.db.Colors.FirstOrDefault(x => x.Id == model.ColorId);
+
+            if (color == null)
+            {
+                throw new InvalidOperationException("Color cannot be found");
+            }
 
             var classObj = new Class()
             {
@@ -157,7 +167,6 @@ namespace AssignmentManager.Services.Implementations
                 })
                 .OrderByDescending(x => x.DueDate)
                 .ToList();
-
         }
     }
 }

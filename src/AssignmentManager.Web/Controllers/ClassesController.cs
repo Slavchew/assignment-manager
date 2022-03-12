@@ -60,7 +60,7 @@ namespace AssignmentManager.Web.Controllers
 
             ClassDetailsViewModel viewModel = new ClassDetailsViewModel()
             {
-                Id = classObj.Id.Value,
+                Id = classObj.Id,
                 Name = classObj.Name,
                 Color = classObj.Color
             };
@@ -100,7 +100,7 @@ namespace AssignmentManager.Web.Controllers
 
             var viewModel = new ClassDetailsViewModel()
             {
-                Id = classObj.Id.Value,
+                Id = classObj.Id,
                 Name = classObj.Name,
                 Color = classObj.Color,
             };
@@ -148,7 +148,7 @@ namespace AssignmentManager.Web.Controllers
 
             var cdvm = new ClassDetailsViewModel()
             {
-                Id = category.Id.Value,
+                Id = category.Id,
                 Name = category.Name,
                 Color = category.Color,
             };

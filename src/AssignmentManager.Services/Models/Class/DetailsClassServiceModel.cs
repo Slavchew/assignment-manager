@@ -6,7 +6,7 @@ namespace AssignmentManager.Services.Models.Class
 {
     public class DetailsClassServiceModel
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]
