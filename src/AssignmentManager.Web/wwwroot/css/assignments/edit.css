@@ -82,6 +82,9 @@
   outline: none;
   border: solid 2px rgba(0, 0, 0, 0.3);
 }
+.edit_assignment .input-validation-error {
+  border-bottom: solid 2px #D94C55 !important;
+}
 
 .save {
   position: fixed;

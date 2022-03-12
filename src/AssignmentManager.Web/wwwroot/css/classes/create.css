@@ -34,13 +34,16 @@
   border-bottom: solid 2px rgba(0, 0, 0, 0.3);
 }
 .form_create_class_color__label {
+  height: 50px;
+}
+.form_create_class_color__label label {
   display: block;
   color: rgba(0, 0, 0, 0.45);
   font-size: 1.2rem;
   font-weight: 500;
 }
 .form_create_class_color__input {
-  margin: 20px 0 0 0;
+  margin: 0 0 0 0;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -64,6 +67,12 @@
   background-repeat: no-repeat;
   background-position: center;
   border: 2px blue cornered;
+}
+.form_create_class .input-validation-error {
+  border-bottom: solid 2px #D94C55 !important;
+}
+.form_create_class .validation_error span {
+  padding: 2px 0 0 0;
 }
 
 .save_class {

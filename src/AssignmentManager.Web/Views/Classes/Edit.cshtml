@@ -13,32 +13,32 @@
     classesTab.classList.add("nav_option--active");
 </script>
 
-
 <h1 class="main_title">EDIT</h1>
 
 <form asp-action="Edit" class="form_edit_class">
-    <label class="form_edit_class__label" asp-for="Name">Class Title</label>
-    <input class="form_edit_class__name_input" asp-for="Name" placeholder="Title" />
-    <span asp-validation-for="Name" class="validation_error" ></span>
-
-    <label class="form_edit_class__label">Class Color</label>
-    <div class="form_edit_class__color_input">
-        @{
-            var db = new AssignmentManagerDbContext();
-
-            var colors = db.Colors.ToList();
-
-            foreach (var color in colors)
-            {
-                <input asp-for="Color" type="radio" value="@color.Name" id="color_@color.Id" />
-                <label style="background-color: @color.Name" for="color_@color.Id" class="color_box"></label>
-            }
-        }
-
+    <div class="form_edit_class_name">
+        <label class="form_edit_class_name__label" asp-for="Name">Class Title</label>
+        <input class="form_edit_class_name__input" asp-for="Name" placeholder="Title" />
+        <span asp-validation-for="Name" class="validation_error"></span>
     </div>
 
-    <span asp-validation-for="Color" class="validation_error" ></span>
+    <div class="form_create_class_color">
+        <label class="form_edit_class_color__label">Class Color</label>
+        <div class="form_edit_class_color__input">
+            @{
+                var db = new AssignmentManagerDbContext();
 
+                var colors = db.Colors.ToList();
+
+                foreach (var color in colors)
+                {
+                    <input asp-for="Color" type="radio" value="@color.Name" id="color_@color.Id" />
+                    <label style="background-color: @color.Name" for="color_@color.Id" class="color_box"></label>
+                }
+            }
+        </div>
+        <span asp-validation-for="Color" class="validation_error"></span>
+    </div>
 
     <a asp-controller="Classes" asp-action="Delete" asp-route-id="@Model.Id">
         <div class="delete">

@@ -13,6 +13,7 @@
     &_name {
         height: 60px;
         margin: 10px 0 30px 0;
+
         &__label {
             display: block;
             color: rgba(0, 0, 0, 0.45);
@@ -38,14 +39,18 @@
 
     &_color {
         &__label {
-            display: block;
-            color: rgba(0, 0, 0, 0.45);
-            font-size: 1.2rem;
-            font-weight: 500;
+            height: 50px;
+
+            label {
+                display: block;
+                color: rgba(0, 0, 0, 0.45);
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
         }
 
         &__input {
-            margin: 20px 0 0 0;
+            margin: 0 0 0 0;
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -73,6 +78,16 @@
                 background-position: center;
                 border: 2px blue cornered;
             }
+        }
+    }
+
+    .input-validation-error {
+        border-bottom: solid 2px #D94C55 !important;
+    }
+
+    .validation_error {
+        span {
+           padding: 2px 0 0 0;
         }
     }
 }

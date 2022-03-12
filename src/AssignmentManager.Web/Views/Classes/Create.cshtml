@@ -22,10 +22,11 @@
         <span asp-validation-for="Name" class="validation_error"></span>
     </div>
 
-
-
     <div class="form_create_class_color">
-        <label class="form_create_class_color__label">Class Color</label>
+        <div class="form_create_class_color__label">
+            <label>Class Color</label>
+            <span asp-validation-for="ColorId" class="validation_error"></span>
+        </div>
         <div class="form_create_class_color__input">
             @{
                 var db = new AssignmentManagerDbContext();
@@ -40,7 +41,6 @@
 
             }
         </div>
-        <span asp-validation-for="ColorId" class="validation_error"></span>
     </div>
 
     <div>

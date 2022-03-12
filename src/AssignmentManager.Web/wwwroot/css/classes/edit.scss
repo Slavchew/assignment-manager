@@ -10,60 +10,87 @@
     width: 300px;
     margin: auto;
 
-    &__label {
-        display: block;
-        color: rgba(0, 0, 0, 0.45);
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
-
-    &__name_input {
-        border: none;
-        border-bottom: solid 2px rgba(0, 0, 0, 0.2);
-        font-size: 1.4rem;
-        font-weight: 500;
-        color: #222222;
-        height: 35px;
-        width: 300px;
+    &_name {
+        height: 60px;
+        margin: 10px 0 30px 0;
         margin: 10px 0 30px 0;
 
-        &:focus {
-            outline: none;
-            border-bottom: solid 2px rgba(0, 0, 0, 0.3);
+        &__label {
+            display: block;
+            color: rgba(0, 0, 0, 0.45);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        &__input {
+            border: none;
+            border-bottom: solid 2px rgba(0, 0, 0, 0.2);
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #222222;
+            height: 35px;
+            width: 300px;
+
+            &:focus {
+                outline: none;
+                border-bottom: solid 2px rgba(0, 0, 0, 0.3);
+            }
         }
     }
 
-    &__color_input {
-        margin: 20px 0 0 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+    &_color {
+        height: 50px;
 
-        input {
-            position: absolute;
-            top: 0;
-            right: 0;
-            opacity: 0;
+        &__label {
+            display: block;
+            color: rgba(0, 0, 0, 0.45);
+            font-size: 1.2rem;
+            font-weight: 500;
         }
 
-        .color_box {
-            width: 67px;
-            height: 67px;
-            cursor: pointer;
+        &__input {
+            margin: 20px 0 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
 
-            &:hover {
-                transform: scale(107%);
+            input {
+                position: absolute;
+                top: 0;
+                right: 0;
+                opacity: 0;
+            }
+
+            .color_box {
+                width: 67px;
+                height: 67px;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(107%);
+                }
+            }
+
+            input[type="radio"]:checked + label {
+                background-image: url(/content/selectColorX.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                border: 2px blue cornered;
             }
         }
+    }
 
-        input[type="radio"]:checked + label {
-            background-image: url(/content/selectColorX.svg);
-            background-repeat: no-repeat;
-            background-position: center;
-            border: 2px blue cornered;
+    .input-validation-error {
+        border-bottom: solid 2px #D94C55 !important;
+    }
+
+    .validation_error {
+        span {
+            padding: 2px 0 0 0;
         }
     }
 }
+
 
 .delete {
     position: fixed;
@@ -109,6 +136,7 @@
     .main_title {
         display: none;
     }
+
     .form_edit_class {
         margin: 130px auto 0 auto;
     }

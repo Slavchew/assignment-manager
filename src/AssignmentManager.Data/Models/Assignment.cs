@@ -7,16 +7,17 @@ namespace AssignmentManager.Data.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "My custom error message.")]
-        [MaxLength(50, ErrorMessage = "My custom error message.")]
+        [Required(ErrorMessage = "Title is required.")]
+        [MaxLength(50, ErrorMessage = "Character limit is 50.")]
+        [RegularExpression(@"^\S*$", ErrorMessage = "No whitespace allowed.")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "My custom error message.")]
+        [Required(ErrorMessage = "Class is required.")]
         public int ClassId { get; set; }
 
         public virtual Class Class { get; set; }
 
-        [Required(ErrorMessage = "My custom error message.")]
+        [Required(ErrorMessage = "Due Date is required.")]
         public DateTime DueDate { get; set; }
 
         public string Description { get; set; }
