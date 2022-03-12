@@ -10,13 +10,17 @@
   width: 300px;
   margin: auto;
 }
-.form_create_class__label {
+.form_create_class_name {
+  height: 60px;
+  margin: 10px 0 30px 0;
+}
+.form_create_class_name__label {
   display: block;
   color: rgba(0, 0, 0, 0.45);
   font-size: 1.2rem;
   font-weight: 500;
 }
-.form_create_class__name_input {
+.form_create_class_name__input {
   border: none;
   border-bottom: solid 2px rgba(0, 0, 0, 0.2);
   font-size: 1.4rem;
@@ -24,33 +28,38 @@
   color: #222222;
   height: 35px;
   width: 300px;
-  margin: 10px 0 30px 0;
 }
-.form_create_class__name_input:focus {
+.form_create_class_name__input:focus {
   outline: none;
   border-bottom: solid 2px rgba(0, 0, 0, 0.3);
 }
-.form_create_class__color_input {
+.form_create_class_color__label {
+  display: block;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.form_create_class_color__input {
   margin: 20px 0 0 0;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
-.form_create_class__color_input input {
+.form_create_class_color__input input {
   position: absolute;
   top: 0;
   right: 0;
   opacity: 0;
 }
-.form_create_class__color_input .color_box {
+.form_create_class_color__input .color_box {
   width: 67px;
   height: 67px;
   cursor: pointer;
 }
-.form_create_class__color_input .color_box:hover {
+.form_create_class_color__input .color_box:hover {
   transform: scale(107%);
 }
-.form_create_class__color_input input[type=radio]:checked + label {
+.form_create_class_color__input input[type=radio]:checked + label {
   background-image: url(/content/selectColorX.svg);
   background-repeat: no-repeat;
   background-position: center;

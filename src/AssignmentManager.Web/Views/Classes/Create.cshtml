@@ -17,30 +17,32 @@
 <h1 class="main_title">NEW CLASS</h1>
 
 <form asp-action="Create" class="form_create_class">
-    <label class="form_create_class__label" asp-for="Name">Class Title</label>
-    <input class="form_create_class__name_input" asp-for="Name" placeholder="Title" />
-    <span asp-validation-for="Name" class="validation_error" style="color: #D94C55;"></span>
-
-
-    <label class="form_create_class__label">Class Color</label>
-
-    <div class="form_create_class__color_input">
-        @{
-            var db = new AssignmentManagerDbContext();
-
-            var colors = db.Colors.ToList();
-
-            foreach (var color in colors)
-            {
-                <input asp-for="ColorId" type="radio" value="@color.Id" id="color_@color.Id" />
-                <label style="background-color: @color.Name" for="color_@color.Id" class="color_box"></label>
-            }
-
-        }
+    <div class="form_create_class_name">
+        <label class="form_create_class_name__label" asp-for="Name">Class Title</label>
+        <input class="form_create_class_name__input" asp-for="Name" placeholder="Title" />
+        <span asp-validation-for="Name" class="validation_error"></span>
     </div>
 
-    <span asp-validation-for="ColorId" class="validation_error" style="color: #D94C55;"></span>
 
+
+    <div class="form_create_class_color">
+        <label class="form_create_class_color__label">Class Color</label>
+        <div class="form_create_class_color__input">
+            @{
+                var db = new AssignmentManagerDbContext();
+
+                var colors = db.Colors.ToList();
+
+                foreach (var color in colors)
+                {
+                    <input asp-for="ColorId" type="radio" value="@color.Id" id="color_@color.Id" />
+                    <label style="background-color: @color.Name" for="color_@color.Id" class="color_box"></label>
+                }
+
+            }
+        </div>
+        <span asp-validation-for="ColorId" class="validation_error"></span>
+    </div>
 
     <div>
         <button type="submit" class="save_class">

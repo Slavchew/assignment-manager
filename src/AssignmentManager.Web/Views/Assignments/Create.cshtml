@@ -1,9 +1,9 @@
 ﻿@using AssignmentManager.Data
 @model AssignmentManager.Data.Models.Assignment
-
 @{
     ViewData["Title"] = "New Assignment";
 }
+
 <link rel="stylesheet" href="/css/assignments/create.css" />
 
 <script>
@@ -24,13 +24,13 @@
         <div class="create_assignment__l__name">
             <label class="form_label" asp-for="Name">Assignment Title</label>
             <input class="form_input" asp-for="Name" placeholder="Title" />
-            <span asp-validation-for="Name" class="validation_error" style="color: #D94C55;"></span>
+            <span asp-validation-for="Name" class="validation_error"></span>
         </div>
 
         <div class="create_assignment__l__due_date">
             <label class="form_label" asp-for="DueDate">Due Date</label>
             <input class="form_input" type="date" asp-for="DueDate" />
-            <span asp-validation-for="DueDate" class="validation_error" style="color: #D94C55;"></span>
+            <span asp-validation-for="DueDate" class="validation_error"></span>
         </div>
 
         <div class="create_assignment__l__class">
@@ -63,7 +63,7 @@
                 }
             }
 
-            <span asp-validation-for="ClassId" class="validation_error" style="color: #D94C55;"></span>
+            <span asp-validation-for="ClassId" class="validation_error"></span>
         </div>
     </div>
     <div class="create_assignment__description">
