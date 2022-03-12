@@ -70,5 +70,9 @@
   {
     "outputFile": "wwwroot/css/assignments/uncomplete.css",
     "inputFile": "wwwroot/css/assignments/uncomplete.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/shared/validation.css",
+    "inputFile": "wwwroot/css/shared/validation.scss"
   }
 ]

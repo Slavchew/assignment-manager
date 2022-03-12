@@ -1,16 +1,16 @@
 ﻿@using AssignmentManager.Data
 @model AssignmentManager.Web.ViewModels.Class.ClassDetailsViewModel
-
 @{
     ViewData["Title"] = "Edit Class";
 }
+
 <link rel="stylesheet" href="/css/classes/edit.css" />
 
 <script>
-    const scheduleTab = document.getElementsByClassName("nav_list__li--schedule")[0];
-    const classesTab = document.getElementsByClassName("nav_list__li--classes")[0];
+    const scheduleTab = document.getElementsByClassName("nav_option--schedule")[0];
+    const classesTab = document.getElementsByClassName("nav_option--classes")[0];
 
-    classesTab.classList.add("nav_list__li--active");
+    classesTab.classList.add("nav_option--active");
 </script>
 
 
@@ -19,7 +19,7 @@
 <form asp-action="Edit" class="form_edit_class">
     <label class="form_edit_class__label" asp-for="Name">Class Title</label>
     <input class="form_edit_class__name_input" asp-for="Name" placeholder="Title" />
-    <span asp-validation-for="Name" class="validation_error" style="color: #D94C55;"></span>
+    <span asp-validation-for="Name" class="validation_error" ></span>
 
     <label class="form_edit_class__label">Class Color</label>
     <div class="form_edit_class__color_input">
@@ -37,7 +37,7 @@
 
     </div>
 
-    <span asp-validation-for="Color" class="validation_error" style="color: #D94C55;"></span>
+    <span asp-validation-for="Color" class="validation_error" ></span>
 
 
     <a asp-controller="Classes" asp-action="Delete" asp-route-id="@Model.Id">

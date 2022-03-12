@@ -195,7 +195,7 @@
   .assignments_container a .assignment:hover .class__arrow {
     margin: 0 20px 0 0;
   }
-  .assignments_container .no_assignments {
+  .assignments_container .no_completed_assignments {
     margin: 10px 0 0 0;
     width: 250px;
     flex-direction: column-reverse;

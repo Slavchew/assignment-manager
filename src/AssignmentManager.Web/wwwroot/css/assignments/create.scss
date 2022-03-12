@@ -26,7 +26,6 @@
         color: #222222;
         height: 35px;
         width: 220px;
-        margin: 3px 0 30px 0;
         background: none;
 
         &:focus {
@@ -47,16 +46,22 @@
         &__name {
             display: block;
             float: left;
+            height: 56px;
+            margin: 3px 0 30px 0;
         }
 
         &__due_date {
             display: block;
             float: left;
+            height: 60px;
+            margin: 3px 0 30px 0;
         }
 
         &__class {
             display: block;
             float: left;
+            height: 60px;
+            margin: 3px 0 30px 0;
         }
     }
 

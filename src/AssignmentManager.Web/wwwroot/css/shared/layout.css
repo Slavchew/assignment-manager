@@ -1,12 +1,15 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  font-size: 16px;
+}
+
 * {
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -14,24 +17,25 @@ header {
   position: absolute;
   z-index: 99;
   top: 0;
+  left: 0;
   width: 100%;
   height: 150px;
   background-image: url("/content/headerWave.svg");
   background-repeat: repeat-x;
 }
-header a .header__mainLogo {
+header a .header_logo {
   position: absolute;
-  width: 210px;
+  width: 230px;
   margin: 10px 0 0 25px;
 }
-header a .header__mainLogo img {
+header a .header_logo img {
   height: 75px;
 }
-header a .header__mainLogo span {
+header a .header_logo span {
   position: absolute;
   margin: 7px 0 0 13px;
   color: #ffffff;
-  font-size: 21px;
+  font-size: 1.35rem;
   font-weight: 500;
 }
 header .mobile_header_title {
@@ -49,10 +53,10 @@ header nav ul {
   right: 0;
   padding: 0 5% 0 0;
 }
-header nav ul .nav_list__li--active a::after {
-  width: 100% !important;
-  opacity: 100% !important;
-  transition: 0s !important;
+header nav ul .nav_option--active a::after {
+  width: 100%;
+  opacity: 100%;
+  transition: 0s;
 }
 header nav ul li {
   display: inline;
@@ -73,33 +77,15 @@ header nav ul li a::after {
   left: 0;
   height: 0.15rem;
   width: 0%;
-  opacity: 70%;
+  opacity: 75%;
   transition: 0.2s;
   border-radius: 10px;
-}
-header nav ul li a:hover {
-  color: #ffffff;
-  text-decoration: none;
 }
 header nav ul li a:hover::after {
   width: 100%;
 }
-header .menu_btn {
+header .mobile_menu {
   display: none;
-  position: absolute;
-  height: 35px;
-  right: 0;
-  top: 0;
-  margin: 13.5px 20px 0 0;
-  cursor: pointer;
-}
-header .menu_btn .menu_line {
-  width: 36px;
-  height: 4.5px;
-  background-color: #FFFFFF;
-  border-radius: 2px;
-  margin: 7.5px;
-  transition: 0.2s;
 }
 
 main {
@@ -115,11 +101,6 @@ main {
 
 .corner_graphic_mobile {
   display: none;
-  height: 50%;
-  z-index: -1;
-  position: fixed;
-  bottom: 0;
-  left: 0;
 }
 
 @media (max-width: 610px) {
@@ -127,7 +108,7 @@ main {
     position: fixed;
     height: 70px;
   }
-  header a .header__mainLogo {
+  header a .header_logo {
     display: none;
   }
   header .mobile_header_title {
@@ -153,7 +134,7 @@ main {
   header .mobile_header_back_btn--disable {
     display: none;
   }
-  header nav ul .nav_list__li {
+  header nav ul li {
     display: none;
   }
   header .nav--mobile {
@@ -190,18 +171,32 @@ main {
   header .nav--mobile ul li a:hover {
     color: #006FBB;
   }
-  header .menu_btn {
+  header .mobile_menu {
     display: block;
+    position: absolute;
+    height: 35px;
+    right: 0;
+    top: 0;
+    margin: 13.5px 20px 0 0;
+    cursor: pointer;
   }
-  header .menu_btn--active .menu_line:nth-child(1) {
+  header .mobile_menu .menu_line {
+    width: 36px;
+    height: 4.5px;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    margin: 7.5px;
+    transition: 0.2s;
+  }
+  header .mobile_menu--active .menu_line:nth-child(1) {
     background-color: #222222;
     -webkit-transform: rotate(-45deg) translate(-7.5px, 9px);
     transform: rotate(-45deg) translate(-7.5px, 9px);
   }
-  header .menu_btn--active .menu_line:nth-child(2) {
+  header .mobile_menu--active .menu_line:nth-child(2) {
     opacity: 0;
   }
-  header .menu_btn--active .menu_line:nth-child(3) {
+  header .mobile_menu--active .menu_line:nth-child(3) {
     background-color: #222222;
     -webkit-transform: rotate(45deg) translate(-7.5px, -13.5px);
     transform: rotate(45deg) translate(-7.5px, -9px);
@@ -216,8 +211,13 @@ main {
   }
   .corner_graphic_mobile {
     display: block;
+    height: 50%;
+    z-index: -1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
-  .corner_graphic_mobile--menu_btn_active {
+  .corner_graphic_mobile--emerge {
     z-index: 100;
   }
 }

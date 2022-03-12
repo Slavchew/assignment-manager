@@ -1,16 +1,16 @@
 ﻿@using AssignmentManager.Data
 @model AssignmentManager.Web.ViewModels.Assignment.AssignmentDetailsViewModel
-
 @{
     ViewData["Title"] = "Edit Assignment";
 }
+
 <link rel="stylesheet" href="/css/assignments/edit.css" />
 
 <script>
-    const scheduleTab = document.getElementsByClassName("nav_list__li--schedule")[0];
-    const classesTab = document.getElementsByClassName("nav_list__li--classes")[0];
+    const scheduleTab = document.getElementsByClassName("nav_option--schedule")[0];
+    const classesTab = document.getElementsByClassName("nav_option--classes")[0];
 
-    scheduleTab.classList.add("nav_list__li--active");
+    scheduleTab.classList.add("nav_option--active");
 </script>
 
 <h1 class="main_title">EDIT ASSIGNMENT</h1>
@@ -20,13 +20,13 @@
         <div class="edit_assignment__l__name">
             <label class="form_label" asp-for="Name">Assignment Title</label>
             <input class="form_input" asp-for="Name" placeholder="Name" />
-            <span asp-validation-for="Name" class="validation_error" style="color: #D94C55;"></span>
+            <span asp-validation-for="Name" class="validation_error"></span>
         </div>
 
         <div class="edit_assignment__l__due_date">
             <label class="form_label" asp-for="DueDate">Due Date</label>
             <input class="form_input" type="date" asp-for="DueDate" placeholder="DueDate" />
-            <span asp-validation-for="DueDate" class="validation_error" style="color: #D94C55;"></span>
+            <span asp-validation-for="DueDate" class="validation_error" ></span>
         </div>
 
         <div class="edit_assignment__l__class">
@@ -48,7 +48,7 @@
                     }
                 }
             </select>
-            <span asp-validation-for="ClassId" class="validation_error" style="color: #D94C55;"></span>
+            <span asp-validation-for="ClassId" class="validation_error" ></span>
         </div>
     </div>
 

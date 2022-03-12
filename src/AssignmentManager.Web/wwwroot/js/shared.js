@@ -1,12 +1,12 @@
 ﻿window.addEventListener('DOMContentLoaded', (event) => {
     // Menu button
-    const menuBtn = document.getElementsByClassName("menu_btn")[0];
-    const nav = document.getElementsByClassName("nav")[0];
+    const menuBtn = document.getElementsByClassName("mobile_menu")[0];
+    const nav = document.getElementsByTagName("nav")[0];
     const cornerGraphic = document.getElementsByClassName("corner_graphic_mobile")[0]
     menuBtn.addEventListener("click", () => {
         nav.classList.toggle("nav--mobile");
-        cornerGraphic.classList.toggle("corner_graphic_mobile--menu_btn_active");
-        menuBtn.classList.toggle("menu_btn--active");
+        cornerGraphic.classList.toggle("corner_graphic_mobile--emerge");
+        menuBtn.classList.toggle("mobile_menu--active");
     });
 
     // Local storage

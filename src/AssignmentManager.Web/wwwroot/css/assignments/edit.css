@@ -25,7 +25,6 @@
   color: #222222;
   height: 35px;
   width: 220px;
-  margin: 3px 0 30px 0;
   background: none;
 }
 .edit_assignment .form_input:focus {
@@ -43,14 +42,20 @@
 .edit_assignment__l__name {
   display: block;
   float: left;
+  height: 56px;
+  margin: 3px 0 30px 0;
 }
 .edit_assignment__l__due_date {
   display: block;
   float: left;
+  height: 56px;
+  margin: 3px 0 30px 0;
 }
 .edit_assignment__l__class {
   display: block;
   float: left;
+  height: 56px;
+  margin: 3px 0 30px 0;
 }
 .edit_assignment__description {
   padding: 0 0 0 40px;
