@@ -1,1 +1,1 @@
-src/AssignmentManager.Web/wwwroot/lib/* linguist-detectable=false
+src/AssignmentManager.Web/wwwroot/lib/** linguist-vendored
