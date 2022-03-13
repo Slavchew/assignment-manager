@@ -1,11 +1,13 @@
-﻿using AssignmentManager.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using AssignmentManager.Data;
 using AssignmentManager.Data.Models;
 using AssignmentManager.Services.Models.Assignment;
 using AssignmentManager.Services.Models.Class;
+
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace AssignmentManager.Services.Implementations
 {

@@ -1,9 +1,11 @@
-﻿using AssignmentManager.Services;
+﻿using System.Collections.Generic;
+
+using AssignmentManager.Services;
 using AssignmentManager.Services.Models.Class;
 using AssignmentManager.Web.ViewModels.Assignment;
 using AssignmentManager.Web.ViewModels.Class;
+
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace AssignmentManager.Web.Controllers
 {

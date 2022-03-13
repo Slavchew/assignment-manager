@@ -1,13 +1,12 @@
-﻿using AssignmentManager.Data;
+﻿using System;
+using System.Linq;
+
+using AssignmentManager.Data;
 using AssignmentManager.Services.Implementations;
 using AssignmentManager.Services.Models.Assignment;
+
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AssignmentManager.Services.Tests.Assignments
 {

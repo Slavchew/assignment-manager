@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 using AssignmentManager.Web.ViewModels.Assignment;
 
 namespace AssignmentManager.Web.ViewModels.Class

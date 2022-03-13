@@ -1,10 +1,7 @@
-﻿using AssignmentManager.Data;
+﻿using System;
+
+using AssignmentManager.Data;
 using AssignmentManager.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AssignmentManager.Services.Tests
 {
