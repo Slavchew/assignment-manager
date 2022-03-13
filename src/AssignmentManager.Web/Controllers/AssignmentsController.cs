@@ -60,7 +60,7 @@ namespace AssignmentManager.Web.Controllers
         {
             if (!this.assignmentsService.Exists(id))
             {
-                return this.BadRequest();
+                return this.NotFound();
             }
 
             var assignment = this.assignmentsService.GetById(id);
@@ -88,7 +88,7 @@ namespace AssignmentManager.Web.Controllers
         {
             if (!this.assignmentsService.Exists(id))
             {
-                return this.BadRequest();
+                return this.NotFound();
             }
 
             var assignment = this.assignmentsService.GetById(id);
@@ -116,11 +116,6 @@ namespace AssignmentManager.Web.Controllers
         [HttpPost]
         public IActionResult Edit(AssignmentEditInputModel model)
         {
-            if (!this.assignmentsService.Exists(model.Id))
-            {
-                return this.BadRequest();
-            }
-
             if (!ModelState.IsValid)
             {
                 return this.RedirectToAction("Error", "Home");
@@ -146,7 +141,7 @@ namespace AssignmentManager.Web.Controllers
         {
             if (!this.assignmentsService.Exists(id))
             {
-                return this.BadRequest();
+                return this.NotFound();
             }
 
             var assignment = this.assignmentsService.GetById(id);
@@ -187,7 +182,7 @@ namespace AssignmentManager.Web.Controllers
         {
             if (!this.assignmentsService.Exists(id))
             {
-                return this.BadRequest();
+                return this.NotFound();
             }
 
             var assignment = this.assignmentsService.GetById(id);
@@ -223,7 +218,7 @@ namespace AssignmentManager.Web.Controllers
         {
             if (!this.assignmentsService.Exists(id))
             {
-                return this.BadRequest();
+                return this.NotFound();
             }
 
             var assignment = this.assignmentsService.GetById(id);
