@@ -25,6 +25,7 @@ namespace AssignmentManager.Web.Controllers
             return this.View(classes);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return this.View();
@@ -49,7 +50,6 @@ namespace AssignmentManager.Web.Controllers
             return this.RedirectToAction("Index", "Classes");
         }
 
-        
         [HttpGet]
         public IActionResult Details(int id)
         {
@@ -60,7 +60,7 @@ namespace AssignmentManager.Web.Controllers
                 return BadRequest();
             }
 
-            ClassDetailsViewModel viewModel = new ClassDetailsViewModel()
+            var classViewModel = new ClassDetailsViewModel()
             {
                 Id = classObj.Id,
                 Name = classObj.Name,
@@ -69,7 +69,7 @@ namespace AssignmentManager.Web.Controllers
 
             var assignments = this.classesService.GetAllAssignmentsByClassId(id);
 
-            List<AssignmentDetailsViewModel> assignmentsViewModel = new List<AssignmentDetailsViewModel>();
+            var assignmentsViewModel = new List<AssignmentDetailsViewModel>();
             foreach (var item in assignments)
             {
                 var assignment = new AssignmentDetailsViewModel()
@@ -84,15 +84,14 @@ namespace AssignmentManager.Web.Controllers
                 assignmentsViewModel.Add(assignment);
             }
 
-            viewModel.Assignments = assignmentsViewModel;
+            classViewModel.Assignments = assignmentsViewModel;
 
-            return this.View(viewModel);
+            return this.View(classViewModel);
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            
             var classObj = this.classesService.GetById(id);
 
             if (classObj.Name == null)
@@ -100,14 +99,14 @@ namespace AssignmentManager.Web.Controllers
                 return this.BadRequest();
             }
 
-            var viewModel = new ClassDetailsViewModel()
+            var classViewModel = new ClassDetailsViewModel()
             {
                 Id = classObj.Id,
                 Name = classObj.Name,
                 Color = classObj.Color,
             };
 
-            return this.View(viewModel);
+            return this.View(classViewModel);
             
         }
 
@@ -124,44 +123,42 @@ namespace AssignmentManager.Web.Controllers
                 return this.RedirectToAction("Error", "Home");
             }
 
-            var ecsm = new EditClassServiceModel()
+            var classServiceModel = new EditClassServiceModel()
             {
                 Id = model.Id,
                 Name = model.Name,
                 Color = model.Color,
             };
 
-            this.classesService.Edit(ecsm);
+            this.classesService.Edit(classServiceModel);
 
-            return this.RedirectToAction("Index", "Classes", new { id = ecsm.Id });
+            return this.RedirectToAction("Index", "Classes", new { id = classServiceModel.Id });
         }
-
-        
         
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var category = this.classesService.GetById(id);
+            var classObj = this.classesService.GetById(id);
 
-            if (category.Name == null)
+            if (classObj.Name == null)
             {
                 return this.BadRequest();
             }
 
-            var cdvm = new ClassDetailsViewModel()
+            var classViewModel = new ClassDetailsViewModel()
             {
-                Id = category.Id,
-                Name = category.Name,
-                Color = category.Color,
+                Id = classObj.Id,
+                Name = classObj.Name,
+                Color = classObj.Color,
             };
 
-            return this.View(cdvm);
+            return this.View(classViewModel);
         }
 
         [HttpPost]
         public IActionResult Delete(ClassDetailsViewModel model)
         {
-            bool success = this.classesService.Remove(model.Id);
+            var success = this.classesService.Remove(model.Id);
 
             if (!success)
             {

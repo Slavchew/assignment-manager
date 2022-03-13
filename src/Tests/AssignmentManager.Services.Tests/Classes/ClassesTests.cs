@@ -116,7 +116,7 @@ namespace AssignmentManager.Services.Tests.Classes
 
             Assert.AreEqual(classesCountAfter, classesCountBefore + 1);
 
-            // To Use Same Data
+            // To Use Same Data -> Can use [SetUp] on Init method, but time to start tests increase.
             service.Remove(classesCountAfter);
         }
 
@@ -153,7 +153,7 @@ namespace AssignmentManager.Services.Tests.Classes
             Assert.AreEqual(name, newClassObj.Name);
             Assert.AreEqual(color, newClassObj.Color);
 
-            // To Use Same Data
+            // To Use Same Data -> Can use [SetUp] on Init method, but time to start tests increase.
             var oldModel = new EditClassServiceModel()
             {
                 Id = oldClassObj.Id,
@@ -179,6 +179,9 @@ namespace AssignmentManager.Services.Tests.Classes
             Assert.Throws<InvalidOperationException>(() => { service.Edit(model); });
         }
 
+
+
+        // Can use it only with [SetUp] on Init method, but time to start tests increase.
         /*
         [TestCase(1)]
         [TestCase(3)]

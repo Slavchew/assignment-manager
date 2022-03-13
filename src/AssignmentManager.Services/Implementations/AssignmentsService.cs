@@ -30,7 +30,7 @@ namespace AssignmentManager.Services.Implementations
                 throw new InvalidOperationException();
             }
 
-            var dcsm = new DetailsAssignmentServiceModel()
+            var assignmentModel = new DetailsAssignmentServiceModel()
             {
                 Id = assignment.Id,
                 Name = assignment.Name,
@@ -40,7 +40,7 @@ namespace AssignmentManager.Services.Implementations
                 IsCompleted = assignment.IsCompleted,
             };
 
-            return dcsm;
+            return assignmentModel;
         }
 
         public void Create(CreateAssignmentServiceModel model)
@@ -141,11 +141,11 @@ namespace AssignmentManager.Services.Implementations
             this.db.SaveChanges();
         }
 
-        public bool Exists(int assignmentId)
+        public bool Exists(int id)
         {
             return this.db
                 .Assignments
-                .Any(a => a.Id == assignmentId);
+                .Any(a => a.Id == id);
         }
 
         public IEnumerable<DetailsAssignmentServiceModel> GetAll()

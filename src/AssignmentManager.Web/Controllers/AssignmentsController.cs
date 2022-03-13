@@ -54,8 +54,6 @@ namespace AssignmentManager.Web.Controllers
 
             return this.RedirectToAction("Index", "Assignments");
         }
-
-
         
         [HttpGet]
         public IActionResult Details(int id)
@@ -67,7 +65,7 @@ namespace AssignmentManager.Web.Controllers
                 return BadRequest();
             }
 
-            AssignmentDetailsViewModel viewModel = new AssignmentDetailsViewModel()
+            var assignmentViewModel = new AssignmentDetailsViewModel()
             {
                 Id = assignment.Id,
                 Name = assignment.Name,
@@ -77,14 +75,12 @@ namespace AssignmentManager.Web.Controllers
                 IsCompleted = assignment.IsCompleted,
             };
 
-            return this.View(viewModel);
+            return this.View(assignmentViewModel);
         }
-
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-
             var assignment = this.assignmentsService.GetById(id);
 
             if (assignment.Name == null)
@@ -92,7 +88,7 @@ namespace AssignmentManager.Web.Controllers
                 return this.BadRequest();
             }
 
-            var viewModel = new AssignmentDetailsViewModel()
+            var assignmentViewModel = new AssignmentDetailsViewModel()
             {
 
                 Id = assignment.Id,
@@ -103,7 +99,7 @@ namespace AssignmentManager.Web.Controllers
                 IsCompleted = assignment.IsCompleted,
             };
 
-            return this.View(viewModel);
+            return this.View(assignmentViewModel);
 
         }
 
@@ -120,7 +116,7 @@ namespace AssignmentManager.Web.Controllers
                 return this.RedirectToAction("Error", "Home");
             }
 
-            var easm = new EditAssignmentServiceModel()
+            var assignmentServiceModel = new EditAssignmentServiceModel()
             {
                 Id = model.Id,
                 Name = model.Name,
@@ -130,12 +126,10 @@ namespace AssignmentManager.Web.Controllers
                 IsCompleted = model.IsCompleted,
             };
 
-            this.assignmentsService.Edit(easm);
+            this.assignmentsService.Edit(assignmentServiceModel);
 
-            return this.RedirectToAction("Index", "Assignments", new { id = easm.Id });
+            return this.RedirectToAction("Index", "Assignments", new { id = assignmentServiceModel.Id });
         }
-
-
         
         [HttpGet]
         public IActionResult Delete(int id)
@@ -147,7 +141,7 @@ namespace AssignmentManager.Web.Controllers
                 return this.BadRequest();
             }
 
-            var cdvm = new AssignmentDetailsViewModel()
+            var assignmentViewModel = new AssignmentDetailsViewModel()
             {
                 Id = assignment.Id,
                 Name = assignment.Name,
@@ -157,7 +151,7 @@ namespace AssignmentManager.Web.Controllers
                 IsCompleted = assignment.IsCompleted,
             };
 
-            return this.View(cdvm);
+            return this.View(assignmentViewModel);
         }
 
         [HttpPost]
@@ -183,7 +177,7 @@ namespace AssignmentManager.Web.Controllers
                 return this.BadRequest();
             }
 
-            var cdvm = new AssignmentDetailsViewModel()
+            var assignmentViewModel = new AssignmentDetailsViewModel()
             {
                 Id = assignment.Id,
                 Name = assignment.Name,
@@ -193,7 +187,7 @@ namespace AssignmentManager.Web.Controllers
                 IsCompleted = assignment.IsCompleted,
             };
 
-            return this.View(cdvm);
+            return this.View(assignmentViewModel);
         }
 
         [HttpPost]
@@ -214,7 +208,7 @@ namespace AssignmentManager.Web.Controllers
                 return this.BadRequest();
             }
 
-            var cdvm = new AssignmentDetailsViewModel()
+            var assignmentViewModel = new AssignmentDetailsViewModel()
             {
                 Id = assignment.Id,
                 Name = assignment.Name,
@@ -224,7 +218,7 @@ namespace AssignmentManager.Web.Controllers
                 IsCompleted = assignment.IsCompleted,
             };
 
-            return this.View(cdvm);
+            return this.View(assignmentViewModel);
         }
 
         [HttpPost]

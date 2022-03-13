@@ -113,7 +113,7 @@ namespace AssignmentManager.Services.Tests.Assignments
 
             Assert.AreEqual(assignmentsCountAfter, assignmentsCountBefore + 1);
 
-            // To Use Same Data
+            // To Use Same Data -> Can use [SetUp] on Init method, but time to start tests increase.
             service.Remove(assignmentsCountAfter);
         }
 
@@ -157,7 +157,7 @@ namespace AssignmentManager.Services.Tests.Assignments
             Assert.AreEqual(classId, newAssignment.ClassId);
             Assert.AreEqual(description, newAssignment.Description);
 
-            // To Use Same Data
+            // To Use Same Data -> Can use [SetUp] on Init method, but time to start tests increase.
             var oldModel = new EditAssignmentServiceModel()
             {
                 Id = oldAssignment.Id,
@@ -210,6 +210,7 @@ namespace AssignmentManager.Services.Tests.Assignments
 
             Assert.True(assignment.IsCompleted);
 
+            // To Use Same Data -> Can use [SetUp] on Init method, but time to start tests increase.
             if (oldAssignment.IsCompleted == false)
             {
                 service.Uncomplete(id);
@@ -237,6 +238,7 @@ namespace AssignmentManager.Services.Tests.Assignments
 
             Assert.False(assignment.IsCompleted);
 
+            // To Use Same Data -> Can use [SetUp] on Init method, but time to start tests increase.
             if (oldAssignment.IsCompleted)
             {
                 service.Uncomplete(id);

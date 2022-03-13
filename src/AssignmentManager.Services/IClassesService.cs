@@ -15,10 +15,10 @@ namespace AssignmentManager.Services
 
         bool Remove(int id);
 
-        bool Exists(int classId);
+        bool Exists(int id);
 
         IEnumerable<DetailsClassServiceModel> GetAll();
 
-        IEnumerable<DetailsAssignmentServiceModel> GetAllAssignmentsByClassId(int classId);
+        IEnumerable<DetailsAssignmentServiceModel> GetAllAssignmentsByClassId(int id);
     }
 }

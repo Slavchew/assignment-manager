@@ -32,7 +32,7 @@ namespace AssignmentManager.Services.Implementations
                 throw new InvalidOperationException();
             }
 
-            var dcsm = new DetailsClassServiceModel()
+            var classModel = new DetailsClassServiceModel()
             {
                 Id = classObj.Id,
                 Name = classObj.Name,
@@ -56,9 +56,9 @@ namespace AssignmentManager.Services.Implementations
                 assignments.Add(assignment);
             }
 
-            dcsm.Assignments = assignments;
+            classModel.Assignments = assignments;
 
-            return dcsm;
+            return classModel;
         }
 
         public void Create(CreateClassServiceModel model)
@@ -123,11 +123,11 @@ namespace AssignmentManager.Services.Implementations
             return true;
         }
 
-        public bool Exists(int classId)
+        public bool Exists(int id)
         {
             return this.db
                 .Classes
-                .Any(c => c.Id == classId);
+                .Any(c => c.Id == id);
         }
 
         public IEnumerable<DetailsClassServiceModel> GetAll()
@@ -155,10 +155,10 @@ namespace AssignmentManager.Services.Implementations
                 .ToList();
         }
 
-        public IEnumerable<DetailsAssignmentServiceModel> GetAllAssignmentsByClassId(int classId)
+        public IEnumerable<DetailsAssignmentServiceModel> GetAllAssignmentsByClassId(int id)
         {
             return this.db.Assignments
-                .Where(x => x.ClassId == classId)
+                .Where(x => x.ClassId == id)
                 .Select(x => new DetailsAssignmentServiceModel
                 {
                     Id = x.Id,

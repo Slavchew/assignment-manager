@@ -18,7 +18,7 @@ namespace AssignmentManager.Services
 
         void Uncomplete(int id);
 
-        bool Exists(int assignmentId);
+        bool Exists(int id);
 
         IEnumerable<DetailsAssignmentServiceModel> GetAll();
     }
