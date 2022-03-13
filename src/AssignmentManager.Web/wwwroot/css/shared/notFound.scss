@@ -1,0 +1,43 @@
+﻿.error_number, .error_description {
+    color: #006FBB;
+    text-shadow: 0px 4.5px 4.5px rgba(0, 0, 0, 0.25);
+    margin: auto;
+    display: block;
+    width: max-content;
+    font-weight: 700;
+    line-height: 6rem;
+}
+
+.error_number {
+    margin: 260px auto auto auto;
+    font-size: 9rem;
+}
+
+.error_description {
+    font-size: 2.3rem;
+}
+
+a {
+    text-decoration: none;
+    display: contents;
+
+    .to_homepage {
+        margin: 110px auto auto auto;
+        width: 230px;
+        height: 70px;
+        line-height: 70px;
+        border: none;
+        border-radius: 999px;
+        background-color: #006FBB;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 500;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+        transition: 0.3s all ease;
+
+        &:hover {
+            transform: scale(104%);
+        }
+    }
+}

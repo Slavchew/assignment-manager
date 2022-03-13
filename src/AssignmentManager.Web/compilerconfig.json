@@ -74,5 +74,9 @@
   {
     "outputFile": "wwwroot/css/shared/validation.css",
     "inputFile": "wwwroot/css/shared/validation.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/shared/notFound.css",
+    "inputFile": "wwwroot/css/shared/notFound.scss"
   }
 ]

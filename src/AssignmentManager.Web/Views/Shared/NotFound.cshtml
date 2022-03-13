@@ -2,8 +2,13 @@
     ViewBag.Title = "Not Found";
 }
 
-<h1>Page Not Found</h1>
+<link rel="stylesheet" href="/css/shared/notFound.css" />
 
-<a asp-action="Index" asp-controller="Home">
-    Click here to navigate to the home page
+<h1 class="error_number">404</h1>
+<h2 class="error_description">Page not found</h2>
+
+
+
+<a asp-action="Index" asp-controller="Assignments">
+    <div class="to_homepage">TO HOMEPAGE</div>
 </a>
