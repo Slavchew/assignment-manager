@@ -1,6 +1,7 @@
-﻿using AssignmentManager.Services.Models.Assignment;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
+using AssignmentManager.Services.Models.Assignment;
 
 namespace AssignmentManager.Services.Models.Class
 {

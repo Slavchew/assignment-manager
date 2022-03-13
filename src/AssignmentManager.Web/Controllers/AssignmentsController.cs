@@ -1,14 +1,8 @@
 ﻿using AssignmentManager.Services;
 using AssignmentManager.Services.Models.Assignment;
-using AssignmentManager.Web.Models;
 using AssignmentManager.Web.ViewModels.Assignment;
+
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AssignmentManager.Web.Controllers
 {

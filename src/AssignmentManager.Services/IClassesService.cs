@@ -1,6 +1,7 @@
-﻿using AssignmentManager.Services.Models.Assignment;
+﻿using System.Collections.Generic;
+
+using AssignmentManager.Services.Models.Assignment;
 using AssignmentManager.Services.Models.Class;
-using System.Collections.Generic;
 
 namespace AssignmentManager.Services
 {

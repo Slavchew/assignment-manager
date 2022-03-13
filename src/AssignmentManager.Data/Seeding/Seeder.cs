@@ -1,6 +1,7 @@
-﻿using AssignmentManager.Data.Models;
-using System;
+﻿using System;
 using System.Linq;
+
+using AssignmentManager.Data.Models;
 
 namespace AssignmentManager.Data.Seeding
 {
