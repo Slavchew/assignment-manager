@@ -85,7 +85,7 @@
             var classColorId = assignmentClass.ColorId;
             var classColor = db.Colors.FirstOrDefault(x => x.Id == classColorId);
 
-            if (item.DueDate.Date >= now.Date  && item.IsCompleted == false)
+            if (item.DueDate.Date >= now.Date && item.IsCompleted == false)
             {
                 if (now.Date == item.DueDate.Date)
                     dueDate = "Due today";
@@ -121,8 +121,18 @@
             <div class="no_assignments">
                 <img class="blue_cat" src="/content/blueCatShadow.svg">
                 <div>
-                    <h2>NO ASSIGNMENTS</h2>
-                    <span>Add an assignment with the " <img src="/content/plus.svg" /> " icon.</span>
+                    @{
+                        if (db.Classes.Any())
+                        {
+                            <h2>NO ASSIGNMENTS</h2>
+                            <span>Add an assignment with the " <a asp-action="Create"><img src="/content/plus.svg" /></a> " icon.</span>
+                        }
+                        else
+                        {
+                            <h2>NO CLASSES</h2>
+                            <span>Create a class from <br>the <a style="text-decoration: none;" asp-controller="Classes" asp-action="Index"><span style="font-size: 1.1rem; padding: 4px 7px 4px 7px; background: #006FBB; color: #FFFFFF; border-radius: 11px;">CLASSES</span></a> tab.</span>
+                        }
+                    }
                 </div>
             </div>
         }
