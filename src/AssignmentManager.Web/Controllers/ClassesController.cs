@@ -53,6 +53,11 @@ namespace AssignmentManager.Web.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
+            if (!this.classesService.Exists(id))
+            {
+                return this.BadRequest();
+            }
+
             var classObj = this.classesService.GetById(id);
 
             if (classObj.Name == null)
@@ -92,6 +97,11 @@ namespace AssignmentManager.Web.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            if (!this.classesService.Exists(id))
+            {
+                return this.BadRequest();
+            }
+
             var classObj = this.classesService.GetById(id);
 
             if (classObj.Name == null)
@@ -138,6 +148,11 @@ namespace AssignmentManager.Web.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
+            if (!this.classesService.Exists(id))
+            {
+                return this.BadRequest();
+            }
+
             var classObj = this.classesService.GetById(id);
 
             if (classObj.Name == null)

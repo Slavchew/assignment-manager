@@ -58,6 +58,11 @@ namespace AssignmentManager.Web.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
+            if (!this.assignmentsService.Exists(id))
+            {
+                return this.BadRequest();
+            }
+
             var assignment = this.assignmentsService.GetById(id);
 
             if (assignment.Name == null)
@@ -81,6 +86,11 @@ namespace AssignmentManager.Web.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            if (!this.assignmentsService.Exists(id))
+            {
+                return this.BadRequest();
+            }
+
             var assignment = this.assignmentsService.GetById(id);
 
             if (assignment.Name == null)
@@ -134,6 +144,11 @@ namespace AssignmentManager.Web.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
+            if (!this.assignmentsService.Exists(id))
+            {
+                return this.BadRequest();
+            }
+
             var assignment = this.assignmentsService.GetById(id);
 
             if (assignment.Name == null)
@@ -170,6 +185,11 @@ namespace AssignmentManager.Web.Controllers
         [HttpGet]
         public IActionResult Complete(int id)
         {
+            if (!this.assignmentsService.Exists(id))
+            {
+                return this.BadRequest();
+            }
+
             var assignment = this.assignmentsService.GetById(id);
 
             if (assignment.Name == null)
@@ -201,6 +221,11 @@ namespace AssignmentManager.Web.Controllers
         [HttpGet]
         public IActionResult Uncomplete(int id)
         {
+            if (!this.assignmentsService.Exists(id))
+            {
+                return this.BadRequest();
+            }
+
             var assignment = this.assignmentsService.GetById(id);
 
             if (assignment.Name == null)
