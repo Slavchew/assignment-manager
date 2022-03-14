@@ -1,4 +1,5 @@
-﻿using AssignmentManager.Services;
+﻿using AssignmentManager.Data;
+using AssignmentManager.Services;
 using AssignmentManager.Services.Models.Assignment;
 using AssignmentManager.Web.ViewModels.Assignment;
 
@@ -19,6 +20,8 @@ namespace AssignmentManager.Web.Controllers
         {
             var assignments = this.assignmentsService.GetAll();
 
+            ViewBag.Message = "Due Date";
+            ViewBag.Context = new AssignmentManagerDbContext();
             return this.View(assignments);
         }
 
