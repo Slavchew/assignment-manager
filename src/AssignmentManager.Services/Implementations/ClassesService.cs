@@ -170,5 +170,19 @@ namespace AssignmentManager.Services.Implementations
                 .OrderByDescending(x => x.DueDate)
                 .ToList();
         }
+
+        public string GetColorHex(int classId)
+        {
+            var assignmentClass = db.Classes.FirstOrDefault(x => x.Id == classId);
+            var classColorId = assignmentClass.ColorId;
+            var classColor = db.Colors.FirstOrDefault(x => x.Id == classColorId);
+
+            return classColor.Name;
+        }
+
+        public string GetClassName(int classId)
+        {
+            return db.Classes.FirstOrDefault(x => x.Id == classId).Name;
+        }
     }
 }

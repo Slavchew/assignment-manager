@@ -11,7 +11,7 @@ namespace AssignmentManager.Data
 
         }
 
-        public AssignmentManagerDbContext(DbContextOptions options)
+        public AssignmentManagerDbContext(DbContextOptions<AssignmentManagerDbContext> options)
             : base(options)
         {
 

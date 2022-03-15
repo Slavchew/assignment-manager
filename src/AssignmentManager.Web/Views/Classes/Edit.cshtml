@@ -2,6 +2,7 @@
 @model AssignmentManager.Web.ViewModels.Class.ClassDetailsViewModel
 @{
     ViewData["Title"] = "Edit Class";
+    var db = (AssignmentManagerDbContext)ViewBag.Context;
 }
 
 <link rel="stylesheet" href="/css/classes/edit.css" />
@@ -26,8 +27,6 @@
         <label class="form_edit_class_color__label">Class Color</label>
         <div class="form_edit_class_color__input">
             @{
-                var db = new AssignmentManagerDbContext();
-
                 var colors = db.Colors.ToList();
 
                 foreach (var color in colors)

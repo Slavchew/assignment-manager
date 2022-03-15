@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 using AssignmentManager.Data;
@@ -162,6 +163,47 @@ namespace AssignmentManager.Services.Implementations
                 })
                 .OrderBy(x => x.DueDate)
                 .ToList();
+        }
+
+        public string GetDueDateMessage(DateTime dueDate)
+        {
+            string dueDateMessage = "";
+            var now = DateTime.UtcNow;
+
+            if (dueDate.Date.AddDays(1) == now.Date)
+                dueDateMessage = "Due yesterday";
+            else if (dueDate.Date.AddDays(2) == now.Date)
+                dueDateMessage = "Due 2 days ago";
+            else if (dueDate.Date.AddDays(3) == now.Date)
+                dueDateMessage = "Due 3 days ago";
+            else if (dueDate.Date.AddDays(4) == now.Date)
+                dueDateMessage = "Due 4 days ago";
+            else if (dueDate.Date.AddDays(5) == now.Date)
+                dueDateMessage = "Due 5 days ago";
+            else if (dueDate.Date.AddDays(6) == now.Date)
+                dueDateMessage = "Due 6 days ago";
+            else if (dueDate.Date.AddDays(7) == now.Date)
+                dueDateMessage = "Due a week ago";
+            else if (now.Date == dueDate.Date)
+                dueDateMessage = "Due today";
+            else if (dueDate.Date == now.Date.AddDays(1))
+                dueDateMessage = "Due tomorrow";
+            else if (dueDate.Date == now.Date.AddDays(2))
+                dueDateMessage = "Due in 2 days";
+            else if (dueDate.Date == now.Date.AddDays(3))
+                dueDateMessage = "Due in 3 days";
+            else if (dueDate.Date == now.Date.AddDays(4))
+                dueDateMessage = "Due in 4 days";
+            else if (dueDate.Date == now.Date.AddDays(5))
+                dueDateMessage = "Due in 5 days";
+            else if (dueDate.Date == now.Date.AddDays(6))
+                dueDateMessage = "Due in 6 days";
+            else if (dueDate.Date == now.Date.AddDays(7))
+                dueDateMessage = "Due in a week";
+            else
+                dueDateMessage = $"Due {dueDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)}";
+
+            return dueDateMessage;
         }
     }
 }

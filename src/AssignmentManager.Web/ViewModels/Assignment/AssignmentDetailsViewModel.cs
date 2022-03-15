@@ -15,8 +15,14 @@ namespace AssignmentManager.Web.ViewModels.Assignment
         [Required(ErrorMessage = "Class is required.")]
         public int ClassId { get; set; }
 
+        public string ClassName { get; set; }
+
+        public string ColorHex { get; set; }
+
         [Required(ErrorMessage = "Due Date is required.")]
         public DateTime DueDate { get; set; }
+
+        public string DueDateMessage { get; set; }
 
         public string Description { get; set; }
 

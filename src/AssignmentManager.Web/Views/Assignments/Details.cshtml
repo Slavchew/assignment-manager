@@ -1,8 +1,10 @@
-﻿@using AssignmentManager.Data
-@using System.Globalization
+﻿@using System.Globalization
+@using AssignmentManager.Data
+
 @model AssignmentManager.Web.ViewModels.Assignment.AssignmentDetailsViewModel
 @{
     ViewData["Title"] = "Assignment Details";
+    var db = (AssignmentManagerDbContext)ViewBag.Context;
 }
 
 <link rel="stylesheet" href="/css/assignments/details.css" />
@@ -14,19 +16,14 @@
     scheduleTab.classList.add("nav_option--active");
 </script>
 
-@{
-    var db = new AssignmentManagerDbContext();
-    var className = db.Classes.FirstOrDefault(x => x.Id == Model.ClassId).Name;
-}
-
-<h1 class="main_title">@Model.Name</h1>
-<span class="subtitle">@className</span>
+<h1 class="main_title">@Html.DisplayFor(model => model.Name)</h1>
+<span class="subtitle">@Html.DisplayFor(model => model.ClassName)</span>
 <span class="subtitle">Due @Model.DueDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)</span>
 <div class="divider"></div>
 <p class="description">
     @Model.Description
     @{
-        if (@Model.Description == null)
+        if (Model.Description == null)
         {
             <span class="no_description">No Description</span>
         }
@@ -38,7 +35,6 @@
 @{
     if (Model.IsCompleted)
     {
-        // On Click IsCompleted = false;
         <a asp-action="Uncomplete" asp-route-id="@Model.Id">
             <div class="complete_assignment">
                 <span>UNCOMPLETE</span>

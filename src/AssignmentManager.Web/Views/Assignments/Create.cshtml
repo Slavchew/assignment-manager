@@ -2,6 +2,7 @@
 @model AssignmentManager.Data.Models.Assignment
 @{
     ViewData["Title"] = "New Assignment";
+    var db = (AssignmentManagerDbContext)ViewBag.Context;
 }
 
 <link rel="stylesheet" href="/css/assignments/create.css" />
@@ -14,10 +15,6 @@
 </script>
 
 <h1 class="main_title">NEW ASSIGNMENT</h1>
-
-@{
-    var db = new AssignmentManagerDbContext();
-}
 
 <form asp-action="Create" class="create_assignment">
     <div class="create_assignment__l">

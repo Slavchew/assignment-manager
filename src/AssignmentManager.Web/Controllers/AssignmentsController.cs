@@ -1,4 +1,7 @@
-﻿using AssignmentManager.Data;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+using AssignmentManager.Data;
 using AssignmentManager.Services;
 using AssignmentManager.Services.Models.Assignment;
 using AssignmentManager.Web.ViewModels.Assignment;
@@ -10,30 +13,75 @@ namespace AssignmentManager.Web.Controllers
     public class AssignmentsController : Controller
     {
         private readonly IAssignmentsService assignmentsService;
+        private readonly IClassesService classesService;
+        private readonly AssignmentManagerDbContext context;
+        
 
-        public AssignmentsController(IAssignmentsService assignmentsService)
+        public AssignmentsController(IAssignmentsService assignmentsService, IClassesService classesService, AssignmentManagerDbContext context)
         {
             this.assignmentsService = assignmentsService;
+            this.classesService = classesService;
+            this.context = context;
         }
 
         public IActionResult Index()
         {
             var assignments = this.assignmentsService.GetAll();
 
-            ViewBag.Message = "Due Date";
-            ViewBag.Context = new AssignmentManagerDbContext();
-            return this.View(assignments);
+            var assignmentsViewModels = new List<AssignmentDetailsViewModel>();
+
+            foreach (var assignment in assignments)
+            {
+                var assignmentViewModel = new AssignmentDetailsViewModel
+                {
+                    Id = assignment.Id,
+                    Name = assignment.Name,
+                    ClassId = assignment.ClassId,
+                    ClassName = classesService.GetClassName(assignment.ClassId),
+                    ColorHex = classesService.GetColorHex(assignment.ClassId),
+                    DueDate = assignment.DueDate,
+                    DueDateMessage = assignmentsService.GetDueDateMessage(assignment.DueDate),
+                    Description = assignment.Description,
+                    IsCompleted = assignment.IsCompleted
+                };
+
+                assignmentsViewModels.Add(assignmentViewModel);
+            }
+
+            ViewBag.Context = this.context;
+            return this.View(assignmentsViewModels);
         }
 
         public IActionResult Completed()
         {
             var assignments = this.assignmentsService.GetAll();
 
-            return this.View(assignments);
+            var assignmentsViewModels = new List<AssignmentDetailsViewModel>();
+
+            foreach (var assignment in assignments.Where(x => x.IsCompleted))
+            {
+                var assignmentViewModel = new AssignmentDetailsViewModel
+                {
+                    Id = assignment.Id,
+                    Name = assignment.Name,
+                    ClassId = assignment.ClassId,
+                    ClassName = classesService.GetClassName(assignment.ClassId),
+                    ColorHex = classesService.GetColorHex(assignment.ClassId),
+                    DueDate = assignment.DueDate,
+                    DueDateMessage = assignmentsService.GetDueDateMessage(assignment.DueDate),
+                    Description = assignment.Description,
+                    IsCompleted = assignment.IsCompleted
+                };
+
+                assignmentsViewModels.Add(assignmentViewModel);
+            }
+
+            return this.View(assignmentsViewModels);
         }
 
         public IActionResult Create()
         {
+            ViewBag.Context = this.context;
             return this.View();
         }
 
@@ -78,11 +126,15 @@ namespace AssignmentManager.Web.Controllers
                 Id = assignment.Id,
                 Name = assignment.Name,
                 ClassId = assignment.ClassId,
+                ClassName = classesService.GetClassName(assignment.ClassId),
+                ColorHex = classesService.GetColorHex(assignment.ClassId),
                 DueDate = assignment.DueDate,
+                DueDateMessage = assignmentsService.GetDueDateMessage(assignment.DueDate),
                 Description = assignment.Description,
-                IsCompleted = assignment.IsCompleted,
+                IsCompleted = assignment.IsCompleted
             };
 
+            ViewBag.Context = this.context;
             return this.View(assignmentViewModel);
         }
 
@@ -103,15 +155,18 @@ namespace AssignmentManager.Web.Controllers
 
             var assignmentViewModel = new AssignmentDetailsViewModel()
             {
-
                 Id = assignment.Id,
                 Name = assignment.Name,
                 ClassId = assignment.ClassId,
+                ClassName = classesService.GetClassName(assignment.ClassId),
+                ColorHex = classesService.GetColorHex(assignment.ClassId),
                 DueDate = assignment.DueDate,
+                DueDateMessage = assignmentsService.GetDueDateMessage(assignment.DueDate),
                 Description = assignment.Description,
-                IsCompleted = assignment.IsCompleted,
+                IsCompleted = assignment.IsCompleted
             };
 
+            ViewBag.Context = this.context;
             return this.View(assignmentViewModel);
 
         }
@@ -159,9 +214,12 @@ namespace AssignmentManager.Web.Controllers
                 Id = assignment.Id,
                 Name = assignment.Name,
                 ClassId = assignment.ClassId,
+                ClassName = classesService.GetClassName(assignment.ClassId),
+                ColorHex = classesService.GetColorHex(assignment.ClassId),
                 DueDate = assignment.DueDate,
+                DueDateMessage = assignmentsService.GetDueDateMessage(assignment.DueDate),
                 Description = assignment.Description,
-                IsCompleted = assignment.IsCompleted,
+                IsCompleted = assignment.IsCompleted
             };
 
             return this.View(assignmentViewModel);
@@ -200,9 +258,12 @@ namespace AssignmentManager.Web.Controllers
                 Id = assignment.Id,
                 Name = assignment.Name,
                 ClassId = assignment.ClassId,
+                ClassName = classesService.GetClassName(assignment.ClassId),
+                ColorHex = classesService.GetColorHex(assignment.ClassId),
                 DueDate = assignment.DueDate,
+                DueDateMessage = assignmentsService.GetDueDateMessage(assignment.DueDate),
                 Description = assignment.Description,
-                IsCompleted = assignment.IsCompleted,
+                IsCompleted = assignment.IsCompleted
             };
 
             return this.View(assignmentViewModel);
@@ -236,9 +297,12 @@ namespace AssignmentManager.Web.Controllers
                 Id = assignment.Id,
                 Name = assignment.Name,
                 ClassId = assignment.ClassId,
+                ClassName = classesService.GetClassName(assignment.ClassId),
+                ColorHex = classesService.GetColorHex(assignment.ClassId),
                 DueDate = assignment.DueDate,
+                DueDateMessage = assignmentsService.GetDueDateMessage(assignment.DueDate),
                 Description = assignment.Description,
-                IsCompleted = assignment.IsCompleted,
+                IsCompleted = assignment.IsCompleted
             };
 
             return this.View(assignmentViewModel);

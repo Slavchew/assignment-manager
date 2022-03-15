@@ -2,6 +2,7 @@
 @model AssignmentManager.Web.ViewModels.Assignment.AssignmentDetailsViewModel
 @{
     ViewData["Title"] = "Edit Assignment";
+    var db = (AssignmentManagerDbContext)ViewBag.Context;
 }
 
 <link rel="stylesheet" href="/css/assignments/edit.css" />
@@ -33,7 +34,6 @@
             <label class="form_label" asp-for="ClassId">Class</label>
             <select class="form_input" asp-for="ClassId">
                 @{
-                    var db = new AssignmentManagerDbContext();
                     var classes = db.Classes.Select(x => new
                     {
                         x.Id,

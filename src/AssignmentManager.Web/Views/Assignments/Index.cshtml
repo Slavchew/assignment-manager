@@ -1,9 +1,10 @@
 ﻿@using System.Globalization
 @using AssignmentManager.Data
 
-@model IEnumerable<AssignmentManager.Services.Models.Assignment.DetailsAssignmentServiceModel>
+@model List<AssignmentManager.Web.ViewModels.Assignment.AssignmentDetailsViewModel>
 @{
     ViewData["Title"] = "Schedule";
+    var db = (AssignmentManagerDbContext)ViewBag.Context;
 }
 
 <link rel="stylesheet" href="/css/assignments/index.css" />
@@ -20,7 +21,6 @@
 <div class="assignments_container assignments_container--overdue">
     @{
         var now = DateTime.UtcNow;
-        var dueDate = "";
 
         if (Model.Where(x => x.DueDate.Date < now.Date && x.IsCompleted == false).Count() > 0)
         {
@@ -30,38 +30,16 @@
             </div>
         }
 
-        var db = (AssignmentManagerDbContext)ViewBag.Context;
-
         foreach (var item in Model.OrderBy(x => x.DueDate))
         {
-            var assignmentClass = db.Classes.FirstOrDefault(x => x.Id == item.ClassId);
-            var classColorId = assignmentClass.ColorId;
-            var classColor = db.Colors.FirstOrDefault(x => x.Id == classColorId);
 
             if (item.DueDate.Date < now.Date && item.IsCompleted == false)
             {
-                if (item.DueDate.Date.AddDays(1) == now.Date)
-                    dueDate = "Due yesterday";
-                else if (item.DueDate.Date.AddDays(2) == now.Date)
-                    dueDate = "Due 2 days ago";
-                else if (item.DueDate.Date.AddDays(3) == now.Date)
-                    dueDate = "Due 3 days ago";
-                else if (item.DueDate.Date.AddDays(4) == now.Date)
-                    dueDate = "Due 4 days ago";
-                else if (item.DueDate.Date.AddDays(5) == now.Date)
-                    dueDate = "Due 5 days ago";
-                else if (item.DueDate.Date.AddDays(6) == now.Date)
-                    dueDate = "Due 6 days ago";
-                else if (item.DueDate.Date.AddDays(7) == now.Date)
-                    dueDate = "Due a week ago";
-                else
-                    dueDate = $"Due {item.DueDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)}";
-
                 <a asp-controller="Assignments" asp-action="Details" asp-route-id="@item.Id">
                     <div class="assignment">
-                        <div style="background: @classColor.Name;" class="assignment__color_tag"></div>
+                        <div style="background: @Html.DisplayFor(modelItem => item.ColorHex)" class="assignment__color_tag"></div>
                         <span class="assignment__name">@Html.DisplayFor(modelItem => item.Name)</span>
-                        <span class="assignment__due_date">@ViewBag.Message</span>
+                        <span class="assignment__due_date">@Html.DisplayFor(modelItem => item.DueDateMessage)</span>
                         <img class="assignment__arrow" src="/content/classArrow.svg" />
                     </div>
                 </a>
@@ -82,41 +60,19 @@
 
         foreach (var item in Model.OrderBy(x => x.DueDate))
         {
-            var assignmentClass = db.Classes.FirstOrDefault(x => x.Id == item.ClassId);
-            var classColorId = assignmentClass.ColorId;
-            var classColor = db.Colors.FirstOrDefault(x => x.Id == classColorId);
-
             if (item.DueDate.Date >= now.Date && item.IsCompleted == false)
             {
-                if (now.Date == item.DueDate.Date)
-                    dueDate = "Due today";
-                else if (item.DueDate.Date == now.Date.AddDays(1))
-                    dueDate = "Due tomorrow";
-                else if (item.DueDate.Date == now.Date.AddDays(2))
-                    dueDate = "Due in 2 days";
-                else if (item.DueDate.Date == now.Date.AddDays(3))
-                    dueDate = "Due in 3 days";
-                else if (item.DueDate.Date == now.Date.AddDays(4))
-                    dueDate = "Due in 4 days";
-                else if (item.DueDate.Date == now.Date.AddDays(5))
-                    dueDate = "Due in 5 days";
-                else if (item.DueDate.Date == now.Date.AddDays(6))
-                    dueDate = "Due in 6 days";
-                else if (item.DueDate.Date == now.Date.AddDays(7))
-                    dueDate = "Due in a week";
-                else
-                    dueDate = $"Due {item.DueDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)}";
-
                 <a asp-controller="Assignments" asp-action="Details" asp-route-id="@item.Id">
                     <div class="assignment">
-                        <div style="background: @classColor.Name;" class="assignment__color_tag"></div>
+                        <div style="background: @Html.DisplayFor(modelItem => item.ColorHex);" class="assignment__color_tag"></div>
                         <span class="assignment__name">@Html.DisplayFor(modelItem => item.Name)</span>
-                        <span class="assignment__due_date">@dueDate</span>
+                        <span class="assignment__due_date">@Html.DisplayFor(modelItem => item.DueDateMessage)</span>
                         <img class="assignment__arrow" src="/content/classArrow.svg" />
                     </div>
                 </a>
             }
         }
+        // Better to be upper line 20
         if (Model.Where(x => !x.IsCompleted).Count() == 0)
         {
             <div class="no_assignments">

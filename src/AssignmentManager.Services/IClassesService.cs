@@ -20,5 +20,9 @@ namespace AssignmentManager.Services
         IEnumerable<DetailsClassServiceModel> GetAll();
 
         IEnumerable<DetailsAssignmentServiceModel> GetAllAssignmentsByClassId(int id);
+
+        string GetColorHex(int classId);
+
+        string GetClassName(int classId);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using AssignmentManager.Services.Models.Assignment;
 
@@ -21,5 +22,7 @@ namespace AssignmentManager.Services
         bool Exists(int id);
 
         IEnumerable<DetailsAssignmentServiceModel> GetAll();
+
+        string GetDueDateMessage(DateTime dueDate);
     }
 }
