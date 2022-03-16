@@ -252,5 +252,29 @@ namespace AssignmentManager.Services.Tests.Assignments
         {
             Assert.Throws<InvalidOperationException>(() => service.Uncomplete(id));
         }
+
+
+        // Working only on 16.03.2022, but just need to test
+        [Test]
+        [TestCase("03/16/2022", ExpectedResult = "Due today")]
+        [TestCase("03/15/2022", ExpectedResult = "Due yesterday")]
+        [TestCase("03/14/2022", ExpectedResult = "Due 2 days ago")]
+        [TestCase("03/13/2022", ExpectedResult = "Due 3 days ago")]
+        [TestCase("03/12/2022", ExpectedResult = "Due 4 days ago")]
+        [TestCase("03/11/2022", ExpectedResult = "Due 5 days ago")]
+        [TestCase("03/10/2022", ExpectedResult = "Due 6 days ago")]
+        [TestCase("03/09/2022", ExpectedResult = "Due a week ago")]
+        [TestCase("03/17/2022", ExpectedResult = "Due tomorrow")]
+        [TestCase("03/18/2022", ExpectedResult = "Due in 2 days")]
+        [TestCase("03/19/2022", ExpectedResult = "Due in 3 days")]
+        [TestCase("03/20/2022", ExpectedResult = "Due in 4 days")]
+        [TestCase("03/21/2022", ExpectedResult = "Due in 5 days")]
+        [TestCase("03/22/2022", ExpectedResult = "Due in 6 days")]
+        [TestCase("03/23/2022", ExpectedResult = "Due in a week")]
+        [TestCase("03/27/2022", ExpectedResult = "Due 27/03/2022")]
+        public string GetDueDateMessageShouldWorkCorrectly(DateTime dueDate)
+        {
+            return service.GetDueDateMessage(dueDate);
+        }
     }
 }

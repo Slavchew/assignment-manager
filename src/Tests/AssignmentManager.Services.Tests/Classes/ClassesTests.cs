@@ -218,5 +218,23 @@ namespace AssignmentManager.Services.Tests.Classes
 
             Assert.False(success);
         }
+
+
+        [TestCase(1, ExpectedResult = "#FF0000")]
+        [TestCase(4, ExpectedResult = "#00FF00")]
+        [TestCase(2, ExpectedResult = "#0000FF")]
+        [TestCase(3, ExpectedResult = "#FFFF00")]
+        public string GetColorHexShouldWorkCorrectly(int classId)
+        {
+            return service.GetColorHex(classId);
+        }
+
+        [TestCase(1, ExpectedResult = "Math")]
+        [TestCase(4, ExpectedResult = "English")]
+        [TestCase(2, ExpectedResult = "Art")]
+        public string GetClassNameShouldWorkCorrectly(int classId)
+        {
+            return service.GetClassName(classId);
+        }
     }
 }
