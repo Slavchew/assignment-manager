@@ -11,7 +11,7 @@ namespace AssignmentManager.Web.ViewModels.Class
 
         [Required(ErrorMessage = "Title is required.")]
         [MaxLength(50, ErrorMessage = "Character limit is 50.")]
-        [RegularExpression(@"^\S*$", ErrorMessage = "No whitespace allowed.")]
+        [RegularExpression(@".*\S.*", ErrorMessage = "No whitespace allowed.")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Choosing a color is required.")]
