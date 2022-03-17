@@ -23,20 +23,20 @@ namespace AssignmentManager.Data.Seeding
             {
                 context.Colors.AddRange(
                     new Color() { Name = "#F94144" },
-                    new Color() { Name = "#F9844A" },
-                    new Color() { Name = "#F8961E" },
+                    new Color() { Name = "#F97838" },
+                    new Color() { Name = "#F99A4B" },
                     new Color() { Name = "#F9C74F" },
-                    new Color() { Name = "#90BE6D" },
+                    new Color() { Name = "#1C6446" },
+                    new Color() { Name = "#438253" },
                     new Color() { Name = "#80B376" },
-                    new Color() { Name = "#4D908E" },
-                    new Color() { Name = "#577590" },
-                    new Color() { Name = "#3F7999" },
+                    new Color() { Name = "#9FD178" },
+                    new Color() { Name = "#1053B2" },
                     new Color() { Name = "#277DA1" },
-                    new Color() { Name = "#1B9AAA" },
-                    new Color() { Name = "#07004D" },
-                    new Color() { Name = "#9B7EDE" },
+                    new Color() { Name = "#4FBFCD" },
+                    new Color() { Name = "#7AC7FD" },
                     new Color() { Name = "#8338EC" },
-                    new Color() { Name = "#A846A0" },
+                    new Color() { Name = "#B95DED" },
+                    new Color() { Name = "#EE82EE" },
                     new Color() { Name = "#FFD2FC" });
 
                 context.SaveChanges();
