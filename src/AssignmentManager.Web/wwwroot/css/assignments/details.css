@@ -4,6 +4,7 @@
   font-weight: 500;
   font-size: 2.5rem;
   color: #222222;
+  overflow-wrap: break-word;
 }
 
 .subtitle {
@@ -30,6 +31,7 @@
   color: #222222;
   font-weight: 400;
   margin-bottom: 100px;
+  overflow-wrap: break-word;
 }
 .description .no_description {
   display: block;
