@@ -104,7 +104,6 @@ namespace AssignmentManager.Services.Implementations
         {
             var classObj = this.db
                 .Classes
-                .Include(x => x.Color)
                 .FirstOrDefault(c => c.Id == id);
 
             if (classObj == null)
