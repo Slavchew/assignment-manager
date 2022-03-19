@@ -267,8 +267,11 @@ main {
             position: fixed;
             bottom: 0;
             left: 0;
+            transition: filter .3s ease-in;
+
 
             &--emerge {
+                filter: saturate(50%);
                 z-index: 100;
             }
         }
