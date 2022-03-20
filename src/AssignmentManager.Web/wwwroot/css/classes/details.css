@@ -5,6 +5,7 @@
   font-size: 2.5rem;
   color: #222222;
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 
 .assignments_container {
